@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  this is a test of course
+  <title>Jefferson Cipher</title>
+  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script>
+  function openTab(evt, tabName) {
+  var i, x, y, tablinks;
+  x = document.getElementsByClassName("tab");
+  y = document.getElementsByClassName("quiz");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  for (i = 0; i < y.length; i++) {
+      y[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" selectedtab", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " selectedtab";
+  }
+
+  function openQuiz(evt, quiz) {
+    var i;
+    x = document.getElementsByClassName("quiz");
+    y = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    for (i = 0; i < y.length; i++) {
+        y[i].style.display = "none";
+    }
+    document.getElementById(quiz).style.display = "block";
+  }
+  document.getElementById('learnTab').click();
+  </script>
+</head>
+
+<body onload="document.getElementById('learnTab').click();">
+<div id="Mine">
+      <h1>Jefferson Cipher</h1>
+</div>
+
+<ul class="w3-navbar navbarcolor">
+  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
+  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cipher</a></li>
+</ul>
+
+<div id="Learn" class="w3-container tab">
+  <div style="text-align: center">
+    <iframe class="w3-animate-right" width="560" height="315" src="https://www.youtube.com/embed/ymPbISZY1ds" frameborder="5" allowfullscreen></iframe>
+    <br><br><br>
+    <a href="javascript:void(0)" class="w3-btn w3-light-grey w3-animate-bottom" onclick="openQuiz(event, 'Quiz1');"> Quiz </a>
+  </div>
+</div>
+
+<div id="Quiz1" class="w3-container w3-animate-left quiz">
+  <div class="w3-card-4" style="width:75%;">
+  <header class="w3-container quizcolor">
+    Who invented the Jefferson Cipher?
+  </header>
+  <ul class="w3-container w3-white w3-ul w3-hoverable">
+    <li onclick="document.getElementById('id01').style.display='block'"><h5>A. Thomas Jefferson<h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. Al Jefferson</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>C. John Jefferson</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. George Washington</h5></li>
+  </ul>
+  </div>
+</div>
+
+<div id="Quiz2" class="w3-container w3-animate-left quiz">
+  <div class="w3-card-4" style="width:75%;">
+  <header class="w3-container quizcolor">
+    What is the practice of reading and writing secret codes?
+  </header>
+  <ul class="w3-container w3-white w3-ul w3-hoverable">
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>A. Cryotherapy<h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. Concatenation</h5></li>
+    <li onclick="document.getElementById('id03').style.display='block'"><h5>C. Cryptology</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. Texting</h5></li>
+  </ul>
+  </div>
+</div>
+
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-8">
+    <header class="w3-container w3-green">
+      <span onclick="document.getElementById('id01').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h2>Correct!</h2>
+    </header>
+    <div class="w3-container">
+      <p>You paid attention to the video!</p>
+      <button onclick="openQuiz(event, 'Quiz2'); document.getElementById('id01').style.display='none'" class="w3-btn w3-grey"> Next Question --></button>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div id="id02" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-8">
+    <header class="w3-container w3-red">
+      <span onclick="document.getElementById('id02').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h2>Incorrect!</h2>
+    </header>
+    <div class="w3-container">
+      <p>You might need to go back and watch the video!</p>
+    </div>
+  </div>
+</div>
+
+<div id="id03" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-8">
+    <header class="w3-container w3-green">
+      <span onclick="document.getElementById('id03').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h2>Congratulations!</h2>
+    </header>
+    <div class="w3-container">
+      <p>You are ready to use the Cipher!</p>
+      <button onclick="document.getElementById('id03').style.display='none'; document.getElementById('cipherTab').click();" class="w3-btn w3-grey"> Go to Cipher --></button>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div id="Cipher" class="w3-container tab">
+  <p>Here in this div is where we will add the cipher interface</p>
+</div>
+
+
+</body>
+</html>
