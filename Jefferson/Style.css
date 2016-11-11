@@ -1,0 +1,48 @@
+
+#Mine h1{
+font-family: "Lucida Console";
+color:#840505;
+text-align: center;
+height: 110px;
+padding-top: 40px;
+background-color:#000066;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+#Learn {
+  background-color: #840505;
+}
+
+body {
+  margin: auto;
+  background-color: #840505;
+}
+
+.quizcolor {
+  background-color: #000066;
+  color: white;
+  font-size: 24px
+}
+
+.tab {
+  display: none;
+}
+.quiz {
+  display: none;
+  text-align: left;
+  margin-top: 8%;
+}
+
+.navbarcolor {
+  background-color: #000066;
+  margin-top: 0;
+  padding-top: 0;
+}
+.navbarcolor li {
+  color: White;
+}
+
+.selectedtab {
+  background-color: #840505;
+}
