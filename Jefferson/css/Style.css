@@ -1,0 +1,85 @@
+#Mine h1{
+font-family: "Palatino Linotype";
+color:#FFFFFF;
+text-align: center;
+height: 110px;
+padding-top: 40px;
+background-color:  #70db70;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+#Learn h2{
+font-family: "Lucida Console";
+color:#FFFFFF;
+text-align: center;
+padding-top: 40px;
+padding-bottom: 40px;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+#Learn {
+  background-color: #262626;
+}
+
+#Cipher h4{
+font-family: "Lucida Console";
+color:#FFFFFF;
+text-align: left;
+padding-top: 20px;
+padding-bottom: 10px;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+#Cipher h5{
+color:#FFFFFF;
+text-align: center;
+padding-top: 40px;
+padding-bottom: 10px;
+padding-right: 45px;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 750px;
+}
+
+body {
+  margin: auto;
+  background-color: #262626;
+}
+
+.quizcolor {
+  background-color:  #70db70;
+  color: white;
+  font-size: 24px
+}
+
+.tab {
+  display: none;
+}
+.quiz {
+  display: none;
+  text-align: left;
+  margin-top: 8%;
+}
+
+.navbarcolor {
+  background-color:  #70db70;
+  margin-top: 0;
+  padding-top: 0;
+}
+.navbarcolor li {
+  padding-left: 5px;
+  color: White;
+}
+
+.selectedtab {
+  background-color: #262626;
+}
