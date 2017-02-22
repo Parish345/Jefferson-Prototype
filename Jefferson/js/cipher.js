@@ -7,7 +7,7 @@ function init() {
     mobiscroll.scroller('#test', {
         theme: 'ios',
         display: 'inline',
-        width: 25,
+        width: 30,
         wheels: [
             [{
                 label: 'Wheel 1',
