@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  this is a test of course
   <title>Jefferson Cipher</title>
-  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="css/Style.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-  <script>
-  function openTab(evt, tabName) {
-  var i, x, y, tablinks;
-  x = document.getElementsByClassName("tab");
-  y = document.getElementsByClassName("quiz");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  for (i = 0; i < y.length; i++) {
-      y[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" selectedtab", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " selectedtab";
-  }
+  <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.frame.android-holo.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.frame.ios.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.frame.jqm.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.frame.wp.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.android-holo.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.jqm.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.image.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.android-holo-light.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.wp-light.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.mobiscroll-dark.css" rel="stylesheet" type="text/css" />
+  <script src="js/scripts.js"></script>
+  <script src="js/cipher.js"></script>
+  <script src="js/mobiscroll.dom.js"></script>
+  <script src="js/mobiscroll.core.js"></script>
+  <script src="js/mobiscroll.scrollview.js"></script>
+  <script src="js/mobiscroll.frame.js"></script>
+  <script src="js/mobiscroll.frame.android-holo.js"></script>
+  <script src="js/mobiscroll.frame.ios.js"></script>
+  <script src="js/mobiscroll.frame.jqm.js"></script>
+  <script src="js/mobiscroll.frame.wp.js"></script>
+  <script src="js/mobiscroll.scroller.js"></script>
+  <script src="js/mobiscroll.android-holo-light.js"></script>
+  <script src="js/mobiscroll.wp-light.js"></script>
+  <script src="js/mobiscroll.mobiscroll-dark.js"></script>
 
-  function openQuiz(evt, quiz) {
-    var i;
-    x = document.getElementsByClassName("quiz");
-    y = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    for (i = 0; i < y.length; i++) {
-        y[i].style.display = "none";
-    }
-    document.getElementById(quiz).style.display = "block";
-  }
-  document.getElementById('learnTab').click();
-  </script>
 </head>
 
 <body onload="document.getElementById('learnTab').click();">
@@ -47,11 +44,12 @@
 </div>
 
 <ul class="w3-navbar navbarcolor">
-  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
+  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">      Learn      </a></li>
   <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cipher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
+  <h2>Watch the Video!</h2>
   <div style="text-align: center">
     <iframe class="w3-animate-right" width="560" height="315" src="https://www.youtube.com/embed/ymPbISZY1ds" frameborder="5" allowfullscreen></iframe>
     <br><br><br>
@@ -65,10 +63,10 @@
     Who invented the Jefferson Cipher?
   </header>
   <ul class="w3-container w3-white w3-ul w3-hoverable">
-    <li onclick="document.getElementById('id01').style.display='block'"><h5>A. Thomas Jefferson<h5></li>
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. Al Jefferson</h5></li>
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>C. John Jefferson</h5></li>
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. George Washington</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>A. The United States Minister to France in 1785<h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. The 3rd U.S. President</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>C. The inventor of the swivel chair</h5></li>
+    <li onclick="document.getElementById('id01').style.display='block'"><h5>D. All of the above</h5></li>
   </ul>
   </div>
 </div>
@@ -76,16 +74,63 @@
 <div id="Quiz2" class="w3-container w3-animate-left quiz">
   <div class="w3-card-4" style="width:75%;">
   <header class="w3-container quizcolor">
-    What is the practice of reading and writing secret codes?
+    Which of the following items are necessary to decrypt a message using Jefferson's Cipher?
   </header>
   <ul class="w3-container w3-white w3-ul w3-hoverable">
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>A. Cryotherapy<h5></li>
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. Concatenation</h5></li>
-    <li onclick="document.getElementById('id03').style.display='block'"><h5>C. Cryptology</h5></li>
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. Texting</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>A. The key<h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. The key and the encrypted message</h5></li>
+    <li onclick="document.getElementById('id03').style.display='block'"><h5>C. The key, encrypted message, and the cipher</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. The key, encrypted message, the cipher, and a polygraph</h5></li>
   </ul>
   </div>
 </div>
+
+<div id="Quiz3" class="w3-container w3-animate-left quiz">
+  <div class="w3-card-4" style="width:75%;">
+  <header class="w3-container quizcolor">
+    Using Jefferson's Cipher will keep your message safe from spies if:
+  </header>
+  <ul class="w3-container w3-white w3-ul w3-hoverable">
+    <li onclick="document.getElementById('id04').style.display='block'"><h5>A. You change the key after each message<h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. You cross your fingers</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>C. You use the same key every time</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. You encrpyt the message 3 or more times</h5></li>
+  </ul>
+  </div>
+</div>
+
+<div id="Quiz4" class="w3-container w3-animate-left quiz">
+  <div class="w3-card-4" style="width:75%;">
+  <header class="w3-container quizcolor">
+    How do you know what your key is when you encrypt a message using the Jefferson Cipher?
+  </header>
+  <ul class="w3-container w3-white w3-ul w3-hoverable">
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>A. It is the line above your encrypted message<h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>B. You choose a random number sequence that nobody can guess</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>C. You use the same key every time</h5></li>
+    <li onclick="document.getElementById('id05').style.display='block'"><h5>D. It is the sequence of the numbered disks as lined up on the cipher</h5></li>
+  </ul>
+  </div>
+</div>
+
+<div id="Cipher" class="w3-container tab">
+  <div>
+    <label>
+        Key
+        <input id="key"/>
+    </label>
+    <button onclick="init()">Build</button>
+  </div>
+  <div>
+    <label>
+          Message
+          <input id="test"/>
+      </label>
+      <button onclick="">Move</button>
+  </div>
+</div>
+
+
 
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content w3-animate-top w3-card-8">
@@ -102,7 +147,7 @@
   </div>
 </div>
 
-<div id="id02" class="w3-modal">
+<div id="id02" class="w3-modal"> <!-- Add in a portal to video at the spot where the answer occurs -->
   <div class="w3-modal-content w3-animate-top w3-card-8">
     <header class="w3-container w3-red">
       <span onclick="document.getElementById('id02').style.display='none'"
@@ -120,20 +165,45 @@
     <header class="w3-container w3-green">
       <span onclick="document.getElementById('id03').style.display='none'"
       class="w3-closebtn">&times;</span>
-      <h2>Congratulations!</h2>
+      <h2>That's Right!</h2>
     </header>
     <div class="w3-container">
-      <p>You are ready to use the Cipher!</p>
-      <button onclick="document.getElementById('id03').style.display='none'; document.getElementById('cipherTab').click();" class="w3-btn w3-grey"> Go to Cipher --></button>
+      <p><h3>You are on a roll!</h3>Let's see if you know more!</p>
+      <button onclick="document.getElementById('id03').style.display='none'; openQuiz(event, 'Quiz3')" class="w3-btn w3-grey"> Next Question --></button>
       <br>
     </div>
   </div>
 </div>
 
-<div id="Cipher" class="w3-container tab">
-  <p>Here in this div is where we will add the cipher interface</p>
+<div id="id04" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-8">
+    <header class="w3-container w3-green">
+      <span onclick="document.getElementById('id04').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h2>Bingo!</h2>
+    </header>
+    <div class="w3-container">
+      <p>One more question to left!</p>
+      <button onclick="document.getElementById('id04').style.display='none'; openQuiz(event, 'Quiz4')" class="w3-btn w3-grey"> Next Question --></button>
+      <br>
+    </div>
+  </div>
 </div>
 
+<div id="id05" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-8">
+    <header class="w3-container w3-green">
+      <span onclick="document.getElementById('id05').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h2>Correct!</h2>
+    </header>
+    <div class="w3-container">
+      <p><h3>You have completed the Quiz!</h3>You are ready to use the Cipher!</p>
+      <button onclick="document.getElementById('id05').style.display='none'; document.getElementById('cipherTab').click();" class="w3-btn w3-grey"> Go to Cipher --></button>
+      <br>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
