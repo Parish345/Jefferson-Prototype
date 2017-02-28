@@ -4,7 +4,7 @@ color:#FFFFFF;
 text-align: center;
 height: 110px;
 padding-top: 40px;
-background-color:  #70db70;
+background-color:  #dd4f4f;
 margin-top: 0;
 margin-bottom: 0;
 }
@@ -20,7 +20,7 @@ margin-bottom: 0;
 }
 
 #Learn {
-  background-color: #262626;
+  background-color: #4770d1;
 }
 
 #Cipher h4{
@@ -52,11 +52,11 @@ img {
 
 body {
   margin: auto;
-  background-color: #262626;
+  background-color: #4770d1;
 }
 
 .quizcolor {
-  background-color:  #70db70;
+  background-color:  #dd4f4f;
   color: white;
   font-size: 24px
 }
@@ -71,7 +71,7 @@ body {
 }
 
 .navbarcolor {
-  background-color:  #70db70;
+  background-color:  #dd4f4f;
   margin-top: 0;
   padding-top: 0;
 }
@@ -81,5 +81,5 @@ body {
 }
 
 .selectedtab {
-  background-color: #262626;
+  background-color: #4770d1;
 }
