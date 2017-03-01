@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jefferson Cipher</title>
+  <title>Jefferson's Wheel Cypher</title>
   <link rel="stylesheet" href="css/Style.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Satisfy|Tangerine|Schoolbell' rel='stylesheet'>
   <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
@@ -40,11 +41,11 @@
 
 <body onload="document.getElementById('learnTab').click();">
 <div id="Mine">
-      <h1>Jefferson Cipher</h1>
+      <h1>Jefferson's Wheel Cypher</h1>
 </div>
 
 <ul class="w3-navbar navbarcolor">
-  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">      Learn      </a></li>
+  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
   <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cipher</a></li>
 </ul>
 
@@ -114,6 +115,7 @@
 </div>
 
 <div id="Cipher" class="w3-container tab">
+  <br>
   <div>Key:
     <input id="pos1" class ="key"/>
     <input id="pos2" class ="key"/>
@@ -135,12 +137,13 @@
     <input id="pos18" class ="key"/>
     <input id="pos19" class ="key"/>
     <input id="pos20" class ="key"/>
-    <button onclick="init()">Build</button>
+    <button class="w3-btn w3-light-grey" onclick="init()">Build</button>
   </div>
   <br>
-  <div> Message: <input id="test"/>
-      <button onclick="">Move</button>
+  <div>
+    Message: <input id="test"/>
   </div>
+  <br>
 </div>
 
 
