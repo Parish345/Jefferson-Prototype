@@ -1,16 +1,16 @@
 #Mine h1{
-font-family: "Palatino Linotype";
+font-family: "Tangerine";
+font-size: 60px;
 color:#FFFFFF;
 text-align: center;
-height: 110px;
-padding-top: 40px;
+padding-top: 20px;
 background-color:  #dd4f4f;
 margin-top: 0;
 margin-bottom: 0;
 }
 
 #Learn h2{
-font-family: "Lucida Console";
+font-family: 'Schoolbell';
 color:#FFFFFF;
 text-align: center;
 padding-top: 40px;
@@ -23,14 +23,22 @@ margin-bottom: 0;
   background-color: #4770d1;
 }
 
-#Cipher h4{
-font-family: "Lucida Console";
+#Cipher {
+font-family: "Schoolbell";
 color:#FFFFFF;
 text-align: left;
 padding-top: 20px;
 padding-bottom: 10px;
 margin-top: 0;
 margin-bottom: 0;
+}
+
+.key {
+  width: 25px
+}
+
+#test {
+  width: 1000px;
 }
 
 #Cipher h5{
@@ -78,6 +86,8 @@ body {
 .navbarcolor li {
   padding-left: 5px;
   color: White;
+  font-family: 'Schoolbell';
+  font-size: 20px;
 }
 
 .selectedtab {
