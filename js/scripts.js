@@ -28,7 +28,6 @@ function openQuiz(evt, quiz) {
   }
   document.getElementById(quiz).style.display = "block";
 }
-document.getElementById('learnTab').click();
 
 function sendMessage(evt, sendMess) {
   var i;

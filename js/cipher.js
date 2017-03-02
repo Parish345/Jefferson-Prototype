@@ -115,7 +115,7 @@ function init() {
     }
 
 
-    mobiscroll.scroller('#test', {
+    mobiscroll.scroller('#Cypher', {
         theme: 'ios',
         display: 'inline',
         width: 30,

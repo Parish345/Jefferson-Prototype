@@ -10,7 +10,7 @@ margin-bottom: 0;
 }
 
 #Learn h2{
-font-family: 'Schoolbell';
+font-family: 'Cuprum';
 color:#FFFFFF;
 text-align: center;
 padding-top: 40px;
@@ -21,10 +21,11 @@ margin-bottom: 0;
 
 #Learn {
   background-color: #4770d1;
+  font-family: 'Cuprum';
 }
 
 #Cipher {
-font-family: "Schoolbell";
+font-family: "Cuprum";
 color:#FFFFFF;
 text-align: left;
 padding-top: 20px;
@@ -37,8 +38,13 @@ margin-bottom: 0;
   width: 25px
 }
 
-#test {
-  width: 1000px;
+#keys {
+  margin: 0 auto;
+}
+
+#Cypher {
+  width: 100%;
+  margin: 0 auto;
 }
 
 #Cipher h5{
@@ -86,7 +92,7 @@ body {
 .navbarcolor li {
   padding-left: 5px;
   color: White;
-  font-family: 'Schoolbell';
+  font-family: 'Cuprum';
   font-size: 20px;
 }
 
