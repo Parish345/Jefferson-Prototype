@@ -46,11 +46,11 @@
 
 <ul class="w3-navbar navbarcolor">
   <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
-  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cipher</a></li>
+  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cypher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
-  <h2>Watch the Video!</h2>
+  <h2 class="w3-animate-top">Watch the Video!</h2>
   <div style="text-align: center">
     <iframe class="w3-animate-right" width="560" height="315" src="https://www.youtube.com/embed/ymPbISZY1ds" frameborder="5" allowfullscreen></iframe>
     <br><br><br>
@@ -116,27 +116,27 @@
 
 <div id="Cipher" class="w3-container tab">
   <br>
-  <div id="keys">Key:
-    <input id="pos1" class ="key"/>
-    <input id="pos2" class ="key"/>
-    <input id="pos3" class ="key"/>
-    <input id="pos4" class ="key"/>
-    <input id="pos5" class ="key"/>
-    <input id="pos6" class ="key"/>
-    <input id="pos7" class ="key"/>
-    <input id="pos8" class ="key"/>
-    <input id="pos9" class ="key"/>
-    <input id="pos10" class ="key"/>
-    <input id="pos11" class ="key"/>
-    <input id="pos12" class ="key"/>
-    <input id="pos13" class ="key"/>
-    <input id="pos14" class ="key"/>
-    <input id="pos15" class ="key"/>
-    <input id="pos16" class ="key"/>
-    <input id="pos17" class ="key"/>
-    <input id="pos18" class ="key"/>
-    <input id="pos19" class ="key"/>
-    <input id="pos20" class ="key"/>
+  <div id="keys" class="w3-animate-left">Key:
+    <input id="pos1" class ="key" type="number" min="1" max="20" value="1"/>
+    <input id="pos2" class ="key" type="number" min="1" max="20" value="2"/>
+    <input id="pos3" class ="key" type="number" min="1" max="20" value="3"/>
+    <input id="pos4" class ="key" type="number" min="1" max="20" value="4"/>
+    <input id="pos5" class ="key" type="number" min="1" max="20" value="5"/>
+    <input id="pos6" class ="key" type="number" min="1" max="20" value="6"/>
+    <input id="pos7" class ="key" type="number" min="1" max="20" value="7"/>
+    <input id="pos8" class ="key" type="number" min="1" max="20" value="8"/>
+    <input id="pos9" class ="key" type="number" min="1" max="20" value="9"/>
+    <input id="pos10" class ="key" type="number" min="1" max="20" value="10"/>
+    <input id="pos11" class ="key" type="number" min="1" max="20" value="11"/>
+    <input id="pos12" class ="key" type="number" min="1" max="20" value="12"/>
+    <input id="pos13" class ="key" type="number" min="1" max="20" value="13"/>
+    <input id="pos14" class ="key" type="number" min="1" max="20" value="14"/>
+    <input id="pos15" class ="key" type="number" min="1" max="20" value="15"/>
+    <input id="pos16" class ="key" type="number" min="1" max="20" value="16"/>
+    <input id="pos17" class ="key" type="number" min="1" max="20" value="17"/>
+    <input id="pos18" class ="key" type="number" min="1" max="20" value="18"/>
+    <input id="pos19" class ="key" type="number" min="1" max="20" value="19"/>
+    <input id="pos20" class ="key" type="number" min="1" max="20" value="20"/>
     <button class="w3-btn w3-light-grey" onclick="init()">Build</button>
   </div>
   <br>
@@ -200,7 +200,7 @@
       <h2>Bingo!</h2>
     </header>
     <div class="w3-container">
-      <p>One more question to left!</p>
+      <p>One more question left!</p>
       <button onclick="document.getElementById('id04').style.display='none'; openQuiz(event, 'Quiz4')" class="w3-btn w3-grey"> Next Question --></button>
       <br>
     </div>
