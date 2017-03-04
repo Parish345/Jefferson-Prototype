@@ -38,6 +38,18 @@ var wheel19 = [{value: 1, display:'I'}, {value: 2, display:'M'}, {value: 3, disp
 
 var wheel20 = [{value: 1, display:'J'}, {value: 2, display:'B'}, {value: 3, display:'E'}, {value: 4, display:'V'}, {value: 5, display:'P'}, {value: 6, display:'L'}, {value: 7, display:'S'}, {value: 8, display:'F'}, {value: 9, display:'Z'}, {value: 10, display:'Q'}, {value: 11, display:'M'}, {value: 12, display:'D'}, {value: 13, display:'C'}, {value: 14, display:'T'},  {value: 15, display:'I'}, {value: 16, display:'O'}, {value: 17, display:'K'}, {value: 18, display:'A'}, {value: 19, display:'Y'}, {value: 20, display:'X'}, {value: 21, display:'G'}, {value: 22, display:'U'}, {value: 23, display:'W'}, {value: 24, display:'R'}, {value: 25, display:'N'}, {value: 26, display:'H'}];
 
+function uniqueValues(elements) {
+
+    var values = {},
+        len = elements.length,
+        i = 0;
+
+    for (; i < len; i++) {
+        if (!values[elements[i].value]) values[elements[i].value] = true;
+        else return false;
+    }
+    return true;
+};
 
 function init() {
     var key = [];
@@ -202,4 +214,15 @@ function init() {
             }]
         ]
     });
+}
+
+function BuildCipher() {
+  if (uniqueValues(document.getElementById('keys').getElementsByTagName('input')) == true) {
+    document.getElementById("error").style.display = "none";
+    init();
+    document.getElementById("send").style.display = "block";
+  }
+  else {
+    document.getElementById("error").style.display = "block";
+  }
 }

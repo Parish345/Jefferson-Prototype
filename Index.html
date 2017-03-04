@@ -117,7 +117,7 @@
 <div id="Cipher" class="w3-container tab">
   <br>
   <div id="keys" class="w3-animate-left">Key:
-    <input id="pos1" class ="key" type="number" min="1" max="20" value="1"/>
+    <input id="pos1" class ="key" type="number" min="1" max="20" value="1" required="true"/>
     <input id="pos2" class ="key" type="number" min="1" max="20" value="2"/>
     <input id="pos3" class ="key" type="number" min="1" max="20" value="3"/>
     <input id="pos4" class ="key" type="number" min="1" max="20" value="4"/>
@@ -137,17 +137,21 @@
     <input id="pos18" class ="key" type="number" min="1" max="20" value="18"/>
     <input id="pos19" class ="key" type="number" min="1" max="20" value="19"/>
     <input id="pos20" class ="key" type="number" min="1" max="20" value="20"/>
-    <button class="w3-btn w3-light-grey" onclick="init()">Build</button>
+    <button class="w3-btn w3-light-grey" onclick="BuildCipher()">Build</button>
   </div>
   <br>
+  <div id="error" class="alert w3-animate-left">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Uh oh!</strong> The key values are not unique. Check to make sure your key is entered correctly.
+  </div>
   <div>
         <div id="Cypher">
         </div>
+        <br>
+        <button id="send">Send Message</button>
   </div>
   <br>
 </div>
-
-
 
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content w3-animate-top w3-card-8">
