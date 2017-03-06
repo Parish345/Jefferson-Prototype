@@ -44,3 +44,11 @@ function sendMessage(evt, sendMess) {
   }
   document.getElementById(sendMess).style.display = "block";
 }
+
+function getMessage() {
+  var i
+  for (i = 0; i < 20; i++){
+    var letter = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[i].getAttribute("data-val");
+    console.log(letter);
+  }
+}
