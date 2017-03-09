@@ -38,19 +38,33 @@ function sendMessage() {
 }
 
 function getMessage() {
-  var i;
-  var message = "";
-  for (i = 0; i < 20; i++){
-    var letter = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[i].textContent;
-    message = message + letter;
-  }
+    var message = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[0].textContent;
   return message;
+}
+function getKey() {
+  var key = [];
+  var sequence = "";
+  for (i = 1; i <= 20; i++){
+    key.push(document.getElementById('pos' + i).value);
+  }
+
+  for (j = 0; j <=19; j++) {
+    if (j < 19) {
+    sequence = sequence + key[j] + ", ";
+    }
+    else {
+      sequence = sequence + key[j];
+    }
+  }
+  return sequence;
 }
 
 function sendEmail() {
   var receiver = document.getElementById("to_email").value;
   var encrypted = getMessage();
-  emailjs.send("default_service","template_UjyJpOF0",{to_email: receiver, from_name: "Jefferson Cypher", message: encrypted})
+  var friend = document.getElementById("friend").value;
+  var sequence = getKey();
+  emailjs.send("default_service","template_UjyJpOF0",{to_email: receiver, from_name: "Jefferson Cypher", name: friend, key: sequence, message: encrypted})
   .then(function(){
        alert("Sent!");
      }, function(err) {
