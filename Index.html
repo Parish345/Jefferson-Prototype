@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jefferson Cipher</title>
+  <title>Jefferson's Wheel Cypher</title>
   <link rel="stylesheet" href="css/Style.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Satisfy|Tangerine|Schoolbell|Cuprum' rel='stylesheet'>
   <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
@@ -40,16 +41,16 @@
 
 <body onload="document.getElementById('learnTab').click();">
 <div id="Mine">
-      <h1>Jefferson Cipher</h1>
+      <h1>Jefferson's Wheel Cypher</h1>
 </div>
 
 <ul class="w3-navbar navbarcolor">
-  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">      Learn      </a></li>
-  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cipher</a></li>
+  <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
+  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cypher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
-  <h2>Watch the Video!</h2>
+  <h2 class="w3-animate-top">Watch the Video!</h2>
   <div style="text-align: center">
     <iframe class="w3-animate-right" width="560" height="315" src="https://www.youtube.com/embed/ymPbISZY1ds" frameborder="5" allowfullscreen></iframe>
     <br><br><br>
@@ -114,36 +115,43 @@
 </div>
 
 <div id="Cipher" class="w3-container tab">
-  <div>Key:
-    <input id="pos1" class ="key"/>
-    <input id="pos2" class ="key"/>
-    <input id="pos3" class ="key"/>
-    <input id="pos4" class ="key"/>
-    <input id="pos5" class ="key"/>
-    <input id="pos6" class ="key"/>
-    <input id="pos7" class ="key"/>
-    <input id="pos8" class ="key"/>
-    <input id="pos9" class ="key"/>
-    <input id="pos10" class ="key"/>
-    <input id="pos11" class ="key"/>
-    <input id="pos12" class ="key"/>
-    <input id="pos13" class ="key"/>
-    <input id="pos14" class ="key"/>
-    <input id="pos15" class ="key"/>
-    <input id="pos16" class ="key"/>
-    <input id="pos17" class ="key"/>
-    <input id="pos18" class ="key"/>
-    <input id="pos19" class ="key"/>
-    <input id="pos20" class ="key"/>
-    <button onclick="init()">Build</button>
+  <br>
+  <div id="keys" class="w3-animate-left">Key:
+    <input id="pos1" class ="key" type="number" min="1" max="20" value="1" required="true"/>
+    <input id="pos2" class ="key" type="number" min="1" max="20" value="2"/>
+    <input id="pos3" class ="key" type="number" min="1" max="20" value="3"/>
+    <input id="pos4" class ="key" type="number" min="1" max="20" value="4"/>
+    <input id="pos5" class ="key" type="number" min="1" max="20" value="5"/>
+    <input id="pos6" class ="key" type="number" min="1" max="20" value="6"/>
+    <input id="pos7" class ="key" type="number" min="1" max="20" value="7"/>
+    <input id="pos8" class ="key" type="number" min="1" max="20" value="8"/>
+    <input id="pos9" class ="key" type="number" min="1" max="20" value="9"/>
+    <input id="pos10" class ="key" type="number" min="1" max="20" value="10"/>
+    <input id="pos11" class ="key" type="number" min="1" max="20" value="11"/>
+    <input id="pos12" class ="key" type="number" min="1" max="20" value="12"/>
+    <input id="pos13" class ="key" type="number" min="1" max="20" value="13"/>
+    <input id="pos14" class ="key" type="number" min="1" max="20" value="14"/>
+    <input id="pos15" class ="key" type="number" min="1" max="20" value="15"/>
+    <input id="pos16" class ="key" type="number" min="1" max="20" value="16"/>
+    <input id="pos17" class ="key" type="number" min="1" max="20" value="17"/>
+    <input id="pos18" class ="key" type="number" min="1" max="20" value="18"/>
+    <input id="pos19" class ="key" type="number" min="1" max="20" value="19"/>
+    <input id="pos20" class ="key" type="number" min="1" max="20" value="20"/>
+    <button class="w3-btn w3-light-grey" onclick="BuildCipher()">Build</button>
   </div>
   <br>
-  <div> Message: <input id="test"/>
-      <button onclick="">Move</button>
+  <div id="error" class="alert w3-animate-left">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Uh oh!</strong> The key values are not unique. Check to make sure your key is entered correctly.
   </div>
+  <div>
+        <div id="Cypher">
+        </div>
+        <br>
+        <button id="send" onclick="getMessage()">Send Message</button>
+  </div>
+  <br>
 </div>
-
-
 
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content w3-animate-top w3-card-8">
@@ -196,7 +204,7 @@
       <h2>Bingo!</h2>
     </header>
     <div class="w3-container">
-      <p>One more question to left!</p>
+      <p>One more question left!</p>
       <button onclick="document.getElementById('id04').style.display='none'; openQuiz(event, 'Quiz4')" class="w3-btn w3-grey"> Next Question --></button>
       <br>
     </div>
