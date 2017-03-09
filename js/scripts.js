@@ -4,6 +4,7 @@ x = document.getElementsByClassName("tab");
 y = document.getElementsByClassName("quiz");
 document.getElementById("error").style.display = "none";
 document.getElementById("send").style.display = "none";
+document.getElementById("lock").style.display = "none";
 
 for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";
