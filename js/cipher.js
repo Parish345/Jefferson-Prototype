@@ -1,3 +1,5 @@
+var CURRENTCYPHER;
+
 var wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'U'}, {value: 12, display:'D'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
 
 var wheel2 = [{value: 1, display:'Y'}, {value: 2, display:'L'}, {value: 3, display:'T'}, {value: 4, display:'H'}, {value: 5, display:'M'}, {value: 6, display:'K'}, {value: 7, display:'C'}, {value: 8, display:'W'}, {value: 9, display:'D'}, {value: 10, display:'A'}, {value: 11, display:'U'}, {value: 12, display:'S'}, {value: 13, display:'N'}, {value: 14, display:'J'},  {value: 15, display:'O'}, {value: 16, display:'P'}, {value: 17, display:'B'}, {value: 18, display:'I'}, {value: 19, display:'V'}, {value: 20, display:'Q'}, {value: 21, display:'F'}, {value: 22, display:'Z'}, {value: 23, display:'E'}, {value: 24, display:'G'}, {value: 25, display:'X'}, {value: 26, display:'R'}];
@@ -127,7 +129,7 @@ function init() {
     }
 
 
-    mobiscroll.scroller('#Cypher', {
+    CURRENTCYPHER = mobiscroll.scroller('#Cypher', {
         theme: 'ios',
         display: 'inline',
         width: 30,
@@ -214,6 +216,7 @@ function init() {
             }]
         ]
     });
+
 }
 
 function BuildCipher() {
@@ -225,4 +228,118 @@ function BuildCipher() {
   else {
     document.getElementById("error").style.display = "block";
   }
+}
+
+
+function lockCipher () {
+  var key = [];
+
+  for (i = 1; i <= 20; i++){
+    key.push(document.getElementById('pos' + i).value);
+  }
+
+  var messageValue = [];
+  messageValue = CURRENTCYPHER.getArrayVal();
+
+  var newMegaWheel = [];
+
+
+  for (i = 0; i < 20; i++){
+
+    var tempWheel = [];
+    switch(key[i]){
+      case '20':
+        tempWheel = wheel20;
+        break;
+      case '19':
+        tempWheel = wheel19;
+        break;
+      case '18':
+        tempWheel = wheel18;
+        break;
+      case '17':
+        tempWheel = wheel17;
+        break;
+      case '16':
+        tempWheel = wheel16;
+        break;
+      case '15':
+        tempWheel = wheel15;
+        break;
+      case '14':
+        tempWheel = wheel14;
+        break;
+      case '13':
+        tempWheel = wheel13;
+        break;
+      case '12':
+        tempWheel = wheel12;
+        break;
+      case '11':
+        tempWheel = wheel11;
+        break;
+      case '10':
+        tempWheel = wheel10;
+        break;
+      case '9':
+        tempWheel = wheel9;
+        break;
+      case '8':
+        tempWheel = wheel8;
+        break;
+      case '7':
+        tempWheel = wheel7;
+        break;
+      case '6':
+        tempWheel = wheel6;
+        break;
+      case '5':
+        tempWheel = wheel5;
+        break;
+      case '4':
+        tempWheel = wheel4;
+        break;
+      case '3':
+        tempWheel = wheel3;
+        break;
+      case '2':
+        tempWheel = wheel2;
+        break;
+      case '1':
+        tempWheel = wheel1;
+        break;
+      }
+      var startPoint = messageValue[i] - 1;
+      for (j = 0; j < 26; j++) {
+        if (i === 0) {
+          newMegaWheel[j] = tempWheel[startPoint];
+          newMegaWheel[j].value = j + 1;
+          newMegaWheel[j].display = newMegaWheel[j].display + " ";
+        }else{
+          newMegaWheel[j].display = newMegaWheel[j].display + tempWheel[startPoint].display + " ";
+        }
+        startPoint = startPoint + 1;
+        if (startPoint === 26){
+          startPoint = 0;
+        }
+      }
+      tempWheel = [];
+
+  }
+  mobiscroll.scroller('#megaCypher', {
+      theme: 'ios',
+      display: 'inline',
+      width: 1000,
+      wheels: [
+          [{
+              label: 'Combined Wheel',
+              data: newMegaWheel
+          }]
+      ]
+  });
+  document.getElementById("Cypher").style.display = "none";
+  document.getElementById("lock").style.display = "none";
+  newMegaWheel = [];
+
+  //var wheel12 = [{value: 1, display:'B'}, {value: 2, display:'I'}, {value: 3, display:'J'}, {value: 4, display:'W'}, {value: 5, display:'T'}, {value: 6, display:'F'}, {value: 7, display:'G'}, {value: 8, display:'A'}, {value: 9, display:'X'}, {value: 10, display:'U'}, {value: 11, display:'D'}, {value: 12, display:'R'}, {value: 13, display:'Z'}, {value: 14, display:'V'},  {value: 15, display:'Q'}, {value: 16, display:'M'}, {value: 17, display:'Y'}, {value: 18, display:'K'}, {value: 19, display:'H'}, {value: 20, display:'N'}, {value: 21, display:'P'}, {value: 22, display:'E'}, {value: 23, display:'O'}, {value: 24, display:'S'}, {value: 25, display:'C'}, {value: 26, display:'L'}];
 }
