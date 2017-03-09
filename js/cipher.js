@@ -224,6 +224,7 @@ function BuildCipher() {
     document.getElementById("error").style.display = "none";
     init();
 
+    document.getElementById("lock").style.display = "block";
   }
   else {
     document.getElementById("error").style.display = "block";
