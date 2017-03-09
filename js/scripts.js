@@ -32,23 +32,28 @@ function openQuiz(evt, quiz) {
   document.getElementById(quiz).style.display = "block";
 }
 
-function sendMessage(evt, sendMess) {
-  var i;
-  x = document.getElementsByClassName("sendMess");
-  y = document.getElementsByClassName("tab");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  for (i = 0; i < y.length; i++) {
-      y[i].style.display = "none";
-  }
-  document.getElementById(sendMess).style.display = "block";
+function sendMessage() {
+  console.log(getMessage());
+  document.getElementById("sendMess").style.display = "block";
 }
 
 function getMessage() {
-  var i
+  var i;
+  var message = "";
   for (i = 0; i < 20; i++){
-    var letter = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[i].getAttribute("data-val");
-    console.log(letter);
+    var letter = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[i].textContent;
+    message = message + letter;
   }
+  return message;
+}
+
+function sendEmail() {
+  var receiver = document.getElementById("to_email").value;
+  var encrypted = getMessage();
+  emailjs.send("default_service","template_UjyJpOF0",{to_email: receiver, from_name: "Jefferson Cypher", message: encrypted})
+  .then(function(){
+       alert("Sent!");
+     }, function(err) {
+       alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+    });
 }

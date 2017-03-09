@@ -36,7 +36,12 @@
   <script src="js/mobiscroll.android-holo-light.js"></script>
   <script src="js/mobiscroll.wp-light.js"></script>
   <script src="js/mobiscroll.mobiscroll-dark.js"></script>
-
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init("user_0UoBIwSD5c35jpTpR6WLF");
+      })();
+  </script>
 </head>
 
 <body onload="document.getElementById('learnTab').click();">
@@ -142,13 +147,13 @@
   <br>
   <div id="error" class="alert w3-animate-left">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Uh oh!</strong> The key values are not unique. Check to make sure your key is entered correctly.
+    <strong>Uh oh!</strong> You can't use the same disc twice. Check to make sure your key is entered correctly.
   </div>
   <div>
         <div id="Cypher">
         </div>
         <br>
-        <button id="send" onclick="getMessage()">Send Message</button>
+        <button id="send" onclick="sendMessage()">Send Message</button>
   </div>
   <br>
 </div>
@@ -225,6 +230,24 @@
     </div>
   </div>
 </div>
+
+<div id="sendMess" class="w3-modal">
+   <div class="w3-modal-content w3-animate-top w3-card-8">
+     <header class="w3-container w3-blue">
+       <span onclick="document.getElementById('sendMess').style.display='none'"
+       class="w3-closebtn">&times;</span>
+       <h2>Send your secret message</h2>
+     </header>
+     <div class="w3-container">
+       <p>The encrpyted message is: </p>
+       <p>The key is: </p>
+       <p>Please enter your friend's email address:  <input id="to_email"></input></p>
+     </div>
+     <footer class="w3-container w3-blue">
+       <p><button id="sendEmail"class="w3-btn w3-light-grey" onclick="sendEmail()">Send</button></p>
+     </footer>
+   </div>
+ </div>
 
 </body>
 </html>
