@@ -223,7 +223,8 @@ function BuildCipher() {
   if (uniqueValues(document.getElementById('keys').getElementsByTagName('input')) == true) {
     document.getElementById("error").style.display = "none";
     init();
-    document.getElementById("send").style.display = "block";
+
+    document.getElementById("lock").style.display = "block";
   }
   else {
     document.getElementById("error").style.display = "block";
@@ -339,6 +340,7 @@ function lockCipher () {
   });
   document.getElementById("Cypher").style.display = "none";
   document.getElementById("lock").style.display = "none";
+  document.getElementById("send").style.display = "block";
   newMegaWheel = [];
 
   //var wheel12 = [{value: 1, display:'B'}, {value: 2, display:'I'}, {value: 3, display:'J'}, {value: 4, display:'W'}, {value: 5, display:'T'}, {value: 6, display:'F'}, {value: 7, display:'G'}, {value: 8, display:'A'}, {value: 9, display:'X'}, {value: 10, display:'U'}, {value: 11, display:'D'}, {value: 12, display:'R'}, {value: 13, display:'Z'}, {value: 14, display:'V'},  {value: 15, display:'Q'}, {value: 16, display:'M'}, {value: 17, display:'Y'}, {value: 18, display:'K'}, {value: 19, display:'H'}, {value: 20, display:'N'}, {value: 21, display:'P'}, {value: 22, display:'E'}, {value: 23, display:'O'}, {value: 24, display:'S'}, {value: 25, display:'C'}, {value: 26, display:'L'}];
