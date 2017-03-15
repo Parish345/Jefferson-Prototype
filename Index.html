@@ -4,24 +4,25 @@
   <title>Jefferson's Wheel Cypher</title>
   <link rel="stylesheet" href="css/Style.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Satisfy|Tangerine|Schoolbell|Cuprum' rel='stylesheet'>
   <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.frame.ios.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
-  <link href="css/mobiscroll.frame.android-holo.css" rel="stylesheet" type="text/css" />
-  <link href="css/mobiscroll.frame.ios.css" rel="stylesheet" type="text/css" />
+  <!--<link href="css/mobiscroll.frame.android-holo.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.frame.jqm.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.frame.wp.css" rel="stylesheet" type="text/css" />
-  <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.scroller.android-holo.css" rel="stylesheet" type="text/css" />
-  <link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.scroller.jqm.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.image.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.android-holo-light.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.wp-light.css" rel="stylesheet" type="text/css" />
-  <link href="css/mobiscroll.mobiscroll-dark.css" rel="stylesheet" type="text/css" />
+  <link href="css/mobiscroll.mobiscroll-dark.css" rel="stylesheet" type="text/css" /> -->
   <script src="js/scripts.js"></script>
   <script src="js/cipher.js"></script>
   <script src="js/mobiscroll.dom.js"></script>
@@ -44,7 +45,7 @@
   </script>
 </head>
 
-<body onload="document.getElementById('learnTab').click();">
+<body onload="load();">
 <div id="Mine">
       <h1>Jefferson's Wheel Cypher</h1>
 </div>
@@ -120,8 +121,11 @@
 </div>
 
 <div id="Cipher" class="w3-container tab">
+  <div class="lightSpeedIn animated" style="font-size: 19px">
+    <span>If this is your first time visiting the site, head over to the learn tab for some instruction</span>
+  </div>
   <br>
-  <div id="keys" class="w3-animate-left">Key:
+  <div id="keys" class="w3-animate-left" style="font-size: 18px">Key:
     <input id="pos1" class ="key" type="number" min="1" max="20" value="1" required="true"/>
     <input id="pos2" class ="key" type="number" min="1" max="20" value="2"/>
     <input id="pos3" class ="key" type="number" min="1" max="20" value="3"/>
@@ -142,14 +146,16 @@
     <input id="pos18" class ="key" type="number" min="1" max="20" value="18"/>
     <input id="pos19" class ="key" type="number" min="1" max="20" value="19"/>
     <input id="pos20" class ="key" type="number" min="1" max="20" value="20"/>
-    <input id="pos21" class ="key" type="number" min="1" max="20" value="20"/>
-    <input id="pos22" class ="key" type="number" min="1" max="20" value="20"/>
-    <input id="pos23" class ="key" type="number" min="1" max="20" value="20"/>
-    <input id="pos24" class ="key" type="number" min="1" max="20" value="20"/>
-    <input id="pos25" class ="key" type="number" min="1" max="20" value="20"/>
-    <input id="pos26" class ="key" type="number" min="1" max="20" value="20"/>
+    <input id="pos21" class ="key" type="number" min="1" max="21" value="21"/>
+    <input id="pos22" class ="key" type="number" min="1" max="22" value="22"/>
+    <input id="pos23" class ="key" type="number" min="1" max="23" value="23"/>
+    <input id="pos24" class ="key" type="number" min="1" max="24" value="24"/>
+    <input id="pos25" class ="key" type="number" min="1" max="25" value="25"/>
+    <input id="pos26" class ="key" type="number" min="1" max="26" value="26"/>
 
-    <button class="w3-btn w3-light-grey" onclick="BuildCipher()">Build</button>
+    <button id="build" class="w3-btn w3-light-grey" onclick="BuildCipher()">Build</button>
+    <button id="reset" class="w3-btn w3-light-grey" onclick="ResetCipher()">Reset</button>
+
   </div>
   <br>
   <div id="error" class="alert w3-animate-left">
@@ -248,11 +254,11 @@
      <header class="w3-container w3-blue">
        <span onclick="document.getElementById('sendMess').style.display='none'"
        class="w3-closebtn">&times;</span>
-       <h2>Send your secret message</h2>
+       <h2>Send Message</h2>
      </header>
      <div class="w3-container">
-       <p>The encrpyted message is: </p>
-       <p>The key is: </p>
+       <p>The encrypted message is: <strong><span id="message"></span></strong></p>
+       <p>The key is: <strong><span id="sequence"></span></strong></p>
        <p>What is your friend's name? <input id="friend"></input></p>
        <p>Please enter your friend's email address:  <input id="to_email"></input></p>
      </div>
