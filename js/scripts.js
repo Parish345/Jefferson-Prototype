@@ -1,10 +1,16 @@
+function load() {
+  document.getElementById("error").style.display = "none";
+  document.getElementById("send").style.display = "none";
+  document.getElementById("lock").style.display = "none";
+  document.getElementById("reset").style.display = "none";
+  document.getElementById('learnTab').click();
+}
+
+
 function openTab(evt, tabName) {
 var i, x, y, tablinks;
 x = document.getElementsByClassName("tab");
 y = document.getElementsByClassName("quiz");
-document.getElementById("error").style.display = "none";
-document.getElementById("send").style.display = "none";
-document.getElementById("lock").style.display = "none";
 
 for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";
@@ -36,6 +42,8 @@ function openQuiz(evt, quiz) {
 function sendMessage() {
   console.log(getMessage());
   document.getElementById("sendMess").style.display = "block";
+  document.getElementById("sequence").textContent = getKey();
+  document.getElementById("message").textContent = getMessage();
 }
 
 function getMessage() {

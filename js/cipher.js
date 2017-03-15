@@ -1,6 +1,7 @@
 var CURRENTCYPHER;
+var LOCKEDCYPHER;
 
-var wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'U'}, {value: 12, display:'D'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
+const wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'U'}, {value: 12, display:'D'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
 
 var wheel2 = [{value: 1, display:'Y'}, {value: 2, display:'L'}, {value: 3, display:'T'}, {value: 4, display:'H'}, {value: 5, display:'M'}, {value: 6, display:'K'}, {value: 7, display:'C'}, {value: 8, display:'W'}, {value: 9, display:'D'}, {value: 10, display:'A'}, {value: 11, display:'U'}, {value: 12, display:'S'}, {value: 13, display:'N'}, {value: 14, display:'J'},  {value: 15, display:'O'}, {value: 16, display:'P'}, {value: 17, display:'B'}, {value: 18, display:'I'}, {value: 19, display:'V'}, {value: 20, display:'Q'}, {value: 21, display:'F'}, {value: 22, display:'Z'}, {value: 23, display:'E'}, {value: 24, display:'G'}, {value: 25, display:'X'}, {value: 26, display:'R'}];
 
@@ -14,7 +15,7 @@ var wheel6 = [{value: 1, display:'U'}, {value: 2, display:'P'}, {value: 3, displ
 
 var wheel7 = [{value: 1, display:'D'}, {value: 2, display:'R'}, {value: 3, display:'N'}, {value: 4, display:'K'}, {value: 5, display:'U'}, {value: 6, display:'W'}, {value: 7, display:'G'}, {value: 8, display:'F'}, {value: 9, display:'B'}, {value: 10, display:'P'}, {value: 11, display:'A'}, {value: 12, display:'H'}, {value: 13, display:'X'}, {value: 14, display:'S'},  {value: 15, display:'E'}, {value: 16, display:'T'}, {value: 17, display:'Q'}, {value: 18, display:'Z'}, {value: 19, display:'V'}, {value: 20, display:'J'}, {value: 21, display:'L'}, {value: 22, display:'M'}, {value: 23, display:'Y'}, {value: 24, display:'I'}, {value: 25, display:'O'}, {value: 26, display:'C'}];
 
-var  wheel8 = [{value: 1, display:'O'}, {value: 2, display:'J'}, {value: 3, display:'Y'}, {value: 4, display:'X'}, {value: 5, display:'I'}, {value: 6, display:'F'}, {value: 7, display:'U'}, {value: 8, display:'Z'}, {value: 9, display:'K'}, {value: 10, display:'W'}, {value: 11, display:'H'}, {value: 12, display:'G'}, {value: 13, display:'E'}, {value: 14, display:'B'},  {value: 15, display:'S'}, {value: 16, display:'A'}, {value: 17, display:'N'}, {value: 18, display:'V'}, {value: 19, display:'L'}, {value: 20, display:'M'}, {value: 21, display:'G'}, {value: 22, display:'T'}, {value: 23, display:'C'}, {value: 24, display:'P'}, {value: 25, display:'U'}, {value: 26, display:'R'}];
+var wheel8 = [{value: 1, display:'O'}, {value: 2, display:'J'}, {value: 3, display:'Y'}, {value: 4, display:'X'}, {value: 5, display:'I'}, {value: 6, display:'F'}, {value: 7, display:'U'}, {value: 8, display:'Z'}, {value: 9, display:'K'}, {value: 10, display:'W'}, {value: 11, display:'H'}, {value: 12, display:'G'}, {value: 13, display:'E'}, {value: 14, display:'B'},  {value: 15, display:'S'}, {value: 16, display:'A'}, {value: 17, display:'N'}, {value: 18, display:'V'}, {value: 19, display:'L'}, {value: 20, display:'M'}, {value: 21, display:'G'}, {value: 22, display:'T'}, {value: 23, display:'C'}, {value: 24, display:'P'}, {value: 25, display:'U'}, {value: 26, display:'R'}];
 
 var wheel9 = [{value: 1, display:'S'}, {value: 2, display:'P'}, {value: 3, display:'W'}, {value: 4, display:'I'}, {value: 5, display:'Y'}, {value: 6, display:'F'}, {value: 7, display:'B'}, {value: 8, display:'U'}, {value: 9, display:'M'}, {value: 10, display:'O'}, {value: 11, display:'R'}, {value: 12, display:'D'}, {value: 13, display:'L'}, {value: 14, display:'E'},  {value: 15, display:'Q'}, {value: 16, display:'V'}, {value: 17, display:'A'}, {value: 18, display:'T'}, {value: 19, display:'Z'}, {value: 20, display:'J'}, {value: 21, display:'C'}, {value: 22, display:'X'}, {value: 23, display:'N'}, {value: 24, display:'G'}, {value: 25, display:'K'}, {value: 26, display:'H'}];
 
@@ -54,13 +55,15 @@ function uniqueValues(elements) {
 };
 
 function init() {
+
     var key = [];
 
     for (i = 1; i <= 20; i++){
       key.push(document.getElementById('pos' + i).value);
     }
 
-        var newWheel = []
+    var newWheel = [];
+    console.log(newWheel);
 
     for (i = 0; i < 20; i++){
       switch(key[i]){
@@ -126,7 +129,7 @@ function init() {
           break;
         }
 
-    }
+    };
 
 
     CURRENTCYPHER = mobiscroll.scroller('#Cypher', {
@@ -216,7 +219,6 @@ function init() {
             }]
         ]
     });
-
 }
 
 function BuildCipher() {
@@ -231,12 +233,27 @@ function BuildCipher() {
   }
 }
 
+function ResetCipher() {
+  document.getElementById("build").style.display = "inline"
+  document.getElementById("reset").style.display = "none"
+  document.getElementById("send").style.display = "none"
+
+  for (i = 1; i <= 20; i++){
+    document.getElementById("pos" + i).readOnly = false;
+  }
+
+  //CURRENTCYPHER.destroy();
+  LOCKEDCYPHER.destroy();
+}
 
 function lockCipher () {
   var key = [];
+  document.getElementById("build").style.display = "none";
+  document.getElementById("reset").style.display = "inline";
 
   for (i = 1; i <= 20; i++){
     key.push(document.getElementById('pos' + i).value);
+    document.getElementById("pos" + i).readOnly = true;
   }
 
   var messageValue = [];
@@ -327,7 +344,8 @@ function lockCipher () {
       tempWheel = [];
 
   }
-  mobiscroll.scroller('#megaCypher', {
+  CURRENTCYPHER.destroy();
+  LOCKEDCYPHER = mobiscroll.scroller('#megaCypher', {
       theme: 'ios',
       display: 'inline',
       width: 1000,
@@ -338,7 +356,7 @@ function lockCipher () {
           }]
       ]
   });
-  document.getElementById("Cypher").style.display = "none";
+
   document.getElementById("lock").style.display = "none";
   document.getElementById("send").style.display = "block";
   newMegaWheel = [];
