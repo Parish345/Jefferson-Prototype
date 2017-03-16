@@ -13,7 +13,8 @@
     background: #f7f7f7;
     color: #000;
     font-size: 12px;
-    font-family: -apple-system, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: "Inconsolata", monospace;
+    letter-spacing: 4px;
 }
 
 .mbsc-ios .mbsc-fr-has-hdr .mbsc-fr-w {
