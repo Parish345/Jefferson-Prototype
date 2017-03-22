@@ -1,9 +1,20 @@
 function load() {
-  document.getElementById("error").style.display = "none";
-  document.getElementById("send").style.display = "none";
-  document.getElementById("lock").style.display = "none";
-  document.getElementById("reset").style.display = "none";
-  document.getElementById('learnTab').click();
+  var hash = location.hash;
+
+  if (hash == "#Cypher") {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("send").style.display = "none";
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("reset").style.display = "none";
+    document.getElementById('cipherTab').click();
+  }
+  else {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("send").style.display = "none";
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("reset").style.display = "none";
+    document.getElementById('learnTab').click();
+  }
 }
 
 

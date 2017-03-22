@@ -72,14 +72,9 @@ function init() {
 
     for (i = 1; i <= 26; i++){
       key.push(document.getElementById('pos' + i).value);
+          document.getElementById("pos" + i).readOnly = true;
     }
-    if (typeof newWheel == 'undefined') {
-    // the variable is not defined
-      var newWheel = [];
-    }else{
-      newWheel.length = 0;
-    }
-    console.log(newWheel);
+    var newWheel = [];
 
     for (i = 0; i < 26; i++){
       switch(key[i]){
@@ -156,11 +151,9 @@ function init() {
           newWheel.push(wheel3);
           break;
         case '2':
-          console.log(wheel2);
           newWheel.push(wheel2);
           break;
         case '1':
-          console.log(wheel1);
           newWheel.push(wheel1);
           break;
         }
@@ -285,7 +278,8 @@ function BuildCipher() {
   if (uniqueValues(document.getElementById('keys').getElementsByTagName('input')) == true) {
     document.getElementById("error").style.display = "none";
     init();
-
+    document.getElementById("build").style.display = "none"
+    document.getElementById("reset").style.display = "inline"
     document.getElementById("lock").style.display = "block";
   }
   else {
@@ -297,12 +291,13 @@ function ResetCipher() {
   document.getElementById("build").style.display = "inline"
   document.getElementById("reset").style.display = "none"
   document.getElementById("send").style.display = "none"
+  document.getElementById("lock").style.display = "none"
 
-  for (i = 1; i <= 20; i++){
+  for (i = 1; i <= 26; i++){
     document.getElementById("pos" + i).readOnly = false;
   }
 
-  //CURRENTCYPHER.destroy();
+  CURRENTCYPHER.destroy();
   LOCKEDCYPHER.destroy();
 }
 
@@ -364,16 +359,14 @@ function lockCipher () {
   document.getElementById("build").style.display = "none";
   document.getElementById("reset").style.display = "inline";
 
-  for (i = 1; i <= 26; i++){
-    key.push(document.getElementById('pos' + i).value);
-    document.getElementById("pos" + i).readOnly = true;
-  }
-
   var messageValue = [];
   messageValue = CURRENTCYPHER.getArrayVal();
 
   var newMegaWheel = [];
 
+  for (i = 1; i <= 26; i++){
+    key.push(document.getElementById('pos' + i).value);
+  }
 
   for (i = 0; i < 26; i++){
 
