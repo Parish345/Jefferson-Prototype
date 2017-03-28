@@ -86,8 +86,19 @@ function sendEmail() {
   var sequence = getKey();
   emailjs.send("default_service","template_UjyJpOF0",{to_email: receiver, from_name: "Jefferson Cypher", name: friend, key: sequence, message: encrypted})
   .then(function(){
-       alert("Sent!");
+       document.getElementById("sendFooter1").className = "w3-container w3-green";
+       document.getElementById("sendFooter2").className = "lightSpeedIn animated";
+       document.getElementById("sendFooter2").textContent = "Email Sent Successfully!";
      }, function(err) {
        alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
     });
+}
+
+function resetEmail() {
+  document.getElementById('sendMess').style.display='none';
+  document.getElementById('sendFooter1').className = 'w3-container w3-blue';
+  document.getElementById('sendFooter2').className = 'w3-btn w3-light-grey';
+  document.getElementById("sendFooter2").textContent = "Send";
+  document.getElementById("to_email").value = "";
+  document.getElementById("friend").value = "";
 }

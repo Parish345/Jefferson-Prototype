@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Satisfy|Tangerine|Schoolbell|Cuprum|Inconsolata' rel='stylesheet'>
+  <link href='http://fonts.googleapis.com/css?family=Tangerine|Cuprum|Inconsolata|Asap|Asap:bold' rel='stylesheet'>
   <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
   <link href="css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
@@ -56,11 +56,11 @@
 </ul>
 
 <div id="Learn" class="w3-container tab">
-  <h2 class="w3-animate-top">Watch the Video!</h2>
+  <h2 class="bounceInDown animated">Watch the Video!</h2>
   <div style="text-align: center">
     <iframe class="w3-animate-right" width="560" height="315" src="https://www.youtube.com/embed/ymPbISZY1ds" frameborder="5" allowfullscreen></iframe>
     <br><br><br>
-    <a href="javascript:void(0)" class="w3-btn w3-light-grey w3-animate-bottom" onclick="openQuiz(event, 'Quiz1');"> Quiz </a>
+    <button class="w3-btn w3-light-grey w3-animate-bottom" onclick="openQuiz(event, 'Quiz1');"> Quiz </button>
   </div>
 </div>
 
@@ -121,11 +121,11 @@
 </div>
 
 <div id="Cipher" class="w3-container tab">
-  <div class="lightSpeedIn animated" style="font-size: 19px">
+  <div class="lightSpeedIn animated" style="font-size: 17px">
     <span>If this is your first time visiting the site, head over to the learn tab for instruction</span>
   </div>
   <br>
-  <div id="keys" class="w3-animate-left" style="font-size: 18px">Key:
+  <div id="keys" class="w3-animate-left" style="font-size: 16px">Key:
     <input id="pos1" class ="key" type="number" min="1" max="26" value="1" required="true"/>
     <input id="pos2" class ="key" type="number" min="1" max="26" value="2"/>
     <input id="pos3" class ="key" type="number" min="1" max="26" value="3"/>
@@ -160,7 +160,7 @@
   <br>
   <div id="error" class="alert w3-animate-left">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Uh oh!</strong> You can't use the same disc twice. Check to make sure your key is entered correctly.
+    <strong>Uh oh!</strong> Check to make sure your key is entered correctly. You can't use the same disc twice and the disc number must be between 1 and 26.
   </div>
   <div>
         <div id="megaCypher">
@@ -252,18 +252,18 @@
 <div id="sendMess" class="w3-modal">
    <div class="w3-modal-content w3-animate-top w3-card-8">
      <header class="w3-container w3-blue">
-       <span onclick="document.getElementById('sendMess').style.display='none'"
+       <span onclick="resetEmail()"
        class="w3-closebtn">&times;</span>
        <h2>Send Message</h2>
      </header>
-     <div class="w3-container">
-       <p>The encrypted message is: <strong><span id="message"></span></strong></p>
-       <p>The key is: <strong><span id="sequence"></span></strong></p>
-       <p>What is your friend's name? <input id="friend"></input></p>
-       <p>Please enter your friend's email address:  <input id="to_email"></input></p>
+     <div id="beforeSend" class="w3-container">
+        <p>Key:<tab><span id="sequence" class="bolded" style="font-size: 15px; padding-left: 1em;"></span></p>
+       <p>Encrypted Message:<span id="message" class="bolded" style="font-size: 15px; padding-left: 1em;"></span></p>
+       <p>What is your friend's name?</p> <input id="friend" style="font-size: 15px" size="35"></input>
+       <p>What is your friend's email address:</p> <p><input id="to_email" style="font-size: 15px" size="35"></input></p>
      </div>
-     <footer class="w3-container w3-blue">
-       <p><button id="sendEmail"class="w3-btn w3-light-grey" onclick="sendEmail()">Send</button></p>
+     <footer id="sendFooter1" class="w3-container w3-blue">
+       <p id="sendFooter2"><button id="sendEmail"class="w3-btn w3-light-grey" onclick="sendEmail()">Send</button></p>
      </footer>
    </div>
  </div>

@@ -12,7 +12,17 @@ function uniqueValues(elements) {
         else return false;
     }
     return true;
-};
+}
+
+function validInput(elements) {
+      var valid = true;
+
+      for(i=0; i < elements.length; i++) {
+        if (elements[i].value > 26 | elements[i].value < 1)
+            valid = false;
+      }
+      return valid;
+}
 
 function init() {
   var wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'U'}, {value: 12, display:'D'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
@@ -275,12 +285,12 @@ function init() {
 }
 
 function BuildCipher() {
-  if (uniqueValues(document.getElementById('keys').getElementsByTagName('input')) == true) {
+  if (uniqueValues(document.getElementById('keys').getElementsByTagName('input')) == true & validInput(document.getElementById('keys').getElementsByTagName('input')) ==true) {
     document.getElementById("error").style.display = "none";
-    init();
     document.getElementById("build").style.display = "none"
     document.getElementById("reset").style.display = "inline"
     document.getElementById("lock").style.display = "block";
+    init();
   }
   else {
     document.getElementById("error").style.display = "block";

@@ -1,6 +1,6 @@
 #Mine h1{
 font-family: "Tangerine";
-font-size: 60px;
+font-size: 75px;
 color:#FFFFFF;
 text-align: center;
 padding-top: 20px;
@@ -10,7 +10,7 @@ margin-bottom: 0;
 }
 
 #Learn h2{
-font-family: 'Cuprum';
+font-family: 'Asap';
 color:#FFFFFF;
 text-align: center;
 padding-top: 40px;
@@ -21,11 +21,11 @@ margin-bottom: 0;
 
 #Learn {
   background-color: #4770d1;
-  font-family: 'Cuprum';
+  font-family: 'Asap';
 }
 
 #Cipher {
-font-family: "Cuprum";
+font-family: "Asap";
 color:#FFFFFF;
 text-align: left;
 padding-top: 20px;
@@ -35,7 +35,7 @@ margin-bottom: 0;
 }
 
 .key {
-  width: 35px
+  width: 37px
 }
 
 #keys {
@@ -55,6 +55,15 @@ padding-bottom: 10px;
 padding-right: 45px;
 margin-top: 0;
 margin-bottom: 0;
+}
+
+#sendMess {
+  font-family: 'Asap';
+  font-size: 19px;
+}
+
+#sendMess h2 {
+  font-family: 'Asap';
 }
 
 img {
@@ -91,7 +100,7 @@ body {
 .navbarcolor li {
   padding-left: 5px;
   color: White;
-  font-family: 'Cuprum';
+  font-family: 'Asap';
   font-size: 20px;
 }
 
@@ -118,4 +127,12 @@ body {
 
 .closebtn:hover {
     color: black;
+}
+
+.bolded {
+  font-weight: 700;
+}
+
+.w3-modal {
+  font-family: 'Asap';
 }
