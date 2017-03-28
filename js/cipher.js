@@ -497,3 +497,146 @@ function lockCipher () {
 
   //var wheel12 = [{value: 1, display:'B'}, {value: 2, display:'I'}, {value: 3, display:'J'}, {value: 4, display:'W'}, {value: 5, display:'T'}, {value: 6, display:'F'}, {value: 7, display:'G'}, {value: 8, display:'A'}, {value: 9, display:'X'}, {value: 10, display:'U'}, {value: 11, display:'D'}, {value: 12, display:'R'}, {value: 13, display:'Z'}, {value: 14, display:'V'},  {value: 15, display:'Q'}, {value: 16, display:'M'}, {value: 17, display:'Y'}, {value: 18, display:'K'}, {value: 19, display:'H'}, {value: 20, display:'N'}, {value: 21, display:'P'}, {value: 22, display:'E'}, {value: 23, display:'O'}, {value: 24, display:'S'}, {value: 25, display:'C'}, {value: 26, display:'L'}];
 }
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function RandomCypher() {
+    var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var randomWheels = [];
+
+    for (i = 0; i < 26; i++) {
+      randomWheels.push();
+      console.log(randomWheels[i]);
+    }
+    console.log(randomWheels);
+
+    CURRENTCYPHER = mobiscroll.scroller('#advCypher', {
+        theme: 'ios',
+        display: 'inline',
+        width: 30,
+        wheels: [
+            [{
+                label: 'Wheel 1',
+                data: randomWheels[0]
+            },
+            {
+                label: 'Wheel 2',
+                data: randomWheels[1]
+            },
+            {
+                label: 'Wheel 3',
+                data: randomWheels[2]
+            },
+            {
+                label: 'Wheel 4',
+                data: randomWheels[3]
+            },
+            {
+                label: 'Wheel 5',
+                data: randomWheels[4]
+            },
+            {
+                label: 'Wheel 6',
+                data: randomWheels[5]
+            },
+            {
+                label: 'Wheel 7',
+                data: randomWheels[6]
+            },
+            {
+                label: 'Wheel 8',
+                data: randomWheels[7]
+            },
+            {
+                label: 'Wheel 9',
+                data: randomWheels[8]
+            },
+            {
+                label: 'Wheel 10',
+                data: randomWheels[9]
+            },
+            {
+                label: 'Wheel 11',
+                data: randomWheels[10]
+            },
+            {
+                label: 'Wheel 12',
+                data: randomWheels[11]
+            },
+            {
+                label: 'Wheel 13',
+                data: randomWheels[12]
+            },
+            {
+                label: 'Wheel 14',
+                data: randomWheels[13]
+            },
+            {
+                label: 'Wheel 15',
+                data: randomWheels[14]
+            },
+            {
+                label: 'Wheel 16',
+                data: randomWheels[15]
+            },
+            {
+                label: 'Wheel 17',
+                data: randomWheels[16]
+            },
+            {
+                label: 'Wheel 18',
+                data: randomWheels[17]
+            },
+            {
+                label: 'Wheel 19',
+                data: randomWheels[18]
+            },
+            {
+                label: 'Wheel 20',
+                data: randomWheels[19]
+            },
+            {
+                label: 'Wheel 21',
+                data: randomWheels[20]
+            },
+            {
+                label: 'Wheel 22',
+                data: randomWheels[21]
+            },
+            {
+                label: 'Wheel 23',
+                data: randomWheels[22]
+            },
+            {
+                label: 'Wheel 24',
+                data: randomWheels[23]
+            },
+            {
+                label: 'Wheel 25',
+                data: randomWheels[24]
+            },
+            {
+                label: 'Wheel 26',
+                data: randomWheels[25]
+            }]
+        ]
+    });
+
+}

@@ -53,6 +53,7 @@
 <ul class="w3-navbar navbarcolor">
   <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
   <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cypher</a></li>
+  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Advanced Cypher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
@@ -166,6 +167,26 @@
         <div id="megaCypher">
         </div>
         <div id="Cypher">
+        </div>
+
+        <br>
+
+        <button id="send" class="w3-btn w3-light-grey" onclick="sendMessage()">Send Message</button>
+        <button id="lock" class="w3-btn w3-light-grey" onclick="lockCipher()">Lock</button>
+  </div>
+  <br>
+</div>
+
+<div id="AdvCipher" class="w3-container tab">
+  <div id="keys" class="w3-animate-left" style="font-size: 18px">Key:
+    <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Create a New Cypher</button>
+    <button id="build" class="w3-btn w3-light-grey" onclick="">Upload a Key</button>
+  </div>
+  <br/>
+  <div>
+        <div id="advMegaCypher">
+        </div>
+        <div id="advCypher">
         </div>
 
         <br>
