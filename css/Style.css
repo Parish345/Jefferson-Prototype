@@ -13,8 +13,8 @@ margin-bottom: 0;
 font-family: 'Asap';
 color:#FFFFFF;
 text-align: center;
-padding-top: 40px;
-padding-bottom: 40px;
+padding-top: 20px;
+padding-bottom: 20px;
 margin-top: 0;
 margin-bottom: 0;
 }
@@ -35,7 +35,8 @@ margin-bottom: 0;
 }
 
 .key {
-  width: 37px
+  width: auto;
+  max-width: 37px;
 }
 
 #keys {
@@ -66,6 +67,10 @@ margin-bottom: 0;
   font-family: 'Asap';
 }
 
+html{
+    min-height: 100%;
+}
+
 img {
     display: block;
     margin: 0 auto;
@@ -73,7 +78,10 @@ img {
 }
 
 body {
-  margin: auto;
+  position: relative;
+  margin: 0;
+  padding-bottom: 4rem;
+  min-height: 100%;
   background-color: #4770d1;
 }
 
@@ -135,4 +143,21 @@ body {
 
 .w3-modal {
   font-family: 'Asap';
+}
+
+.keybtn {
+  position: absolute;
+  padding-left: 10px;
+}
+
+.myfooter {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  font-family: 'Asap';
+  color: white;
+  font-size: 14px;
+  background-color: #4770d1;
 }

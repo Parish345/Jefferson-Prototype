@@ -153,9 +153,9 @@
     <input id="pos24" class ="key" type="number" min="1" max="26" value="24"/>
     <input id="pos25" class ="key" type="number" min="1" max="26" value="25"/>
     <input id="pos26" class ="key" type="number" min="1" max="26" value="26"/>
-
-    <button id="build" class="w3-btn w3-light-grey" onclick="BuildCipher()">Build</button>
-    <button id="reset" class="w3-btn w3-light-grey" onclick="ResetCipher()">Reset</button>
+    &nbsp
+    <button id="build" class="w3-btn w3-light-grey keybtn" onclick="BuildCipher()">Build</button>
+    <button id="reset" class="w3-btn w3-light-grey keybtn" onclick="ResetCipher()">Reset</button>
 
   </div>
   <br>
@@ -281,13 +281,15 @@
         <p>Key:<tab><span id="sequence" class="bolded" style="font-size: 15px; padding-left: 1em;"></span></p>
        <p>Encrypted Message:<span id="message" class="bolded" style="font-size: 15px; padding-left: 1em;"></span></p>
        <p>What is your friend's name?</p> <input id="friend" style="font-size: 15px" size="35"></input>
-       <p>What is your friend's email address:</p> <p><input id="to_email" style="font-size: 15px" size="35"></input></p>
+       <p>What is your friend's email address:</p> <p><input id="to_email" type="email" style="font-size: 15px" size="35"></input></p>
      </div>
      <footer id="sendFooter1" class="w3-container w3-blue">
        <p id="sendFooter2"><button id="sendEmail"class="w3-btn w3-light-grey" onclick="sendEmail()">Send</button></p>
      </footer>
    </div>
  </div>
-
 </body>
+<footer class="w3-container myfooter">
+  Morgan Kap | Parish Hansen<div style="float: right">2017 MISM Capstone</div>
+</footer>
 </html>
