@@ -68,7 +68,7 @@
 <div id="Quiz1" class="w3-container w3-animate-left quiz">
   <div class="w3-card-4" style="width:75%;">
   <header class="w3-container quizcolor">
-    Who invented the Jefferson Cipher?
+    Who invented the Wheel Cypher?
   </header>
   <ul class="w3-container w3-white w3-ul w3-hoverable">
     <li onclick="document.getElementById('id02').style.display='block'"><h5>A. The United States Minister to France in 1785<h5></li>
@@ -82,13 +82,13 @@
 <div id="Quiz2" class="w3-container w3-animate-left quiz">
   <div class="w3-card-4" style="width:75%;">
   <header class="w3-container quizcolor">
-    Which of the following items are necessary to decrypt a message using Jefferson's Cipher?
+    Which of the following items are necessary to decrypt a message using Jefferson's Wheel Cypher?
   </header>
   <ul class="w3-container w3-white w3-ul w3-hoverable">
     <li onclick="document.getElementById('id02').style.display='block'"><h5>A. The key<h5></li>
     <li onclick="document.getElementById('id02').style.display='block'"><h5>B. The key and the encrypted message</h5></li>
-    <li onclick="document.getElementById('id03').style.display='block'"><h5>C. The key, encrypted message, and the cipher</h5></li>
-    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. The key, encrypted message, the cipher, and a polygraph</h5></li>
+    <li onclick="document.getElementById('id03').style.display='block'"><h5>C. The key, encrypted message, and the cypher</h5></li>
+    <li onclick="document.getElementById('id02').style.display='block'"><h5>D. The key, encrypted message, the cypher, and a polygraph</h5></li>
   </ul>
   </div>
 </div>
@@ -96,7 +96,7 @@
 <div id="Quiz3" class="w3-container w3-animate-left quiz">
   <div class="w3-card-4" style="width:75%;">
   <header class="w3-container quizcolor">
-    Using Jefferson's Cipher will keep your message safe from spies if:
+    Using Jefferson's Wheel Cypher will keep your message safe from spies if:
   </header>
   <ul class="w3-container w3-white w3-ul w3-hoverable">
     <li onclick="document.getElementById('id04').style.display='block'"><h5>A. You change the key after each message<h5></li>
@@ -110,13 +110,13 @@
 <div id="Quiz4" class="w3-container w3-animate-left quiz">
   <div class="w3-card-4" style="width:75%;">
   <header class="w3-container quizcolor">
-    How do you know what your key is when you encrypt a message using the Jefferson Cipher?
+    How do you know what your key is when you encrypt a message using the Wheel Cypher?
   </header>
   <ul class="w3-container w3-white w3-ul w3-hoverable">
     <li onclick="document.getElementById('id02').style.display='block'"><h5>A. It is the line above your encrypted message<h5></li>
     <li onclick="document.getElementById('id02').style.display='block'"><h5>B. You choose a random number sequence that nobody can guess</h5></li>
     <li onclick="document.getElementById('id02').style.display='block'"><h5>C. You use the same key every time</h5></li>
-    <li onclick="document.getElementById('id05').style.display='block'"><h5>D. It is the sequence of the numbered disks as lined up on the cipher</h5></li>
+    <li onclick="document.getElementById('id05').style.display='block'"><h5>D. It is the sequence of the numbered disks as lined up on the cypher</h5></li>
   </ul>
   </div>
 </div>
@@ -263,8 +263,8 @@
       <h2>Correct!</h2>
     </header>
     <div class="w3-container">
-      <p><h3>You have completed the Quiz!</h3>You are ready to use the Cipher!</p>
-      <button onclick="document.getElementById('id05').style.display='none'; document.getElementById('cipherTab').click();" class="w3-btn w3-grey"> Go to Cipher --></button>
+      <p><h3>You have completed the Quiz!</h3>You are ready to use the Cypher!</p>
+      <button onclick="document.getElementById('id05').style.display='none'; document.getElementById('cipherTab').click();" class="w3-btn w3-grey"> Go to Cypher --></button>
       <br>
     </div>
   </div>
@@ -284,7 +284,9 @@
        <p>What is your friend's email address:</p> <p><input id="to_email" type="email" style="font-size: 15px" size="35"></input></p>
      </div>
      <footer id="sendFooter1" class="w3-container w3-blue">
-       <p id="sendFooter2"><button id="sendEmail"class="w3-btn w3-light-grey" onclick="sendEmail()">Send</button></p>
+       <p id="sendFooter2"></p>
+       <button id="sendEmail"class="w3-btn w3-light-grey" onclick="sendEmail()">Send</button>
+       <p></p>
      </footer>
    </div>
  </div>
