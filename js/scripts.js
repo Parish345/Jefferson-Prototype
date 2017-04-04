@@ -10,6 +10,37 @@ function load() {
   }
   else {
     document.getElementById("error").style.display = "none";
+    document.getElementById("error1").style.display = "none";
+    document.getElementById("cpos1").style.display = "none";
+    document.getElementById("cpos2").style.display = "none";
+    document.getElementById("cpos3").style.display = "none";
+    document.getElementById("cpos4").style.display = "none";
+    document.getElementById("cpos5").style.display = "none";
+    document.getElementById("cpos6").style.display = "none";
+    document.getElementById("cpos7").style.display = "none";
+    document.getElementById("cpos8").style.display = "none";
+    document.getElementById("cpos9").style.display = "none";
+    document.getElementById("cpos10").style.display = "none";
+    document.getElementById("cpos11").style.display = "none";
+    document.getElementById("cpos12").style.display = "none";
+    document.getElementById("cpos13").style.display = "none";
+    document.getElementById("cpos14").style.display = "none";
+    document.getElementById("cpos15").style.display = "none";
+    document.getElementById("cpos16").style.display = "none";
+    document.getElementById("cpos17").style.display = "none";
+    document.getElementById("cpos18").style.display = "none";
+    document.getElementById("cpos19").style.display = "none";
+    document.getElementById("cpos20").style.display = "none";
+    document.getElementById("cpos21").style.display = "none";
+    document.getElementById("cpos22").style.display = "none";
+    document.getElementById("cpos23").style.display = "none";
+    document.getElementById("cpos24").style.display = "none";
+    document.getElementById("cpos25").style.display = "none";
+    document.getElementById("cpos26").style.display = "none";
+    document.getElementById("ckeys").style.display = "none";
+    document.getElementById("cbuild").style.display = "none";
+    document.getElementById("csend").style.display = "none";
+    document.getElementById("clock").style.display = "none";
     document.getElementById("send").style.display = "none";
     document.getElementById("lock").style.display = "none";
     document.getElementById("reset").style.display = "none";
@@ -51,10 +82,34 @@ function openQuiz(evt, quiz) {
 }
 
 function sendMessage() {
-  console.log(getMessage());
+  //console.log(getMessage());
   document.getElementById("sendMess").style.display = "block";
   document.getElementById("sequence").textContent = getKey();
   document.getElementById("message").textContent = getMessage();
+}
+
+function customSendMessage() {
+  //console.log(getMessage());
+  document.getElementById("sendMess").style.display = "block";
+  document.getElementById("sequence").textContent = customGetKey();
+  document.getElementById("message").textContent = getMessage();
+}
+
+function customGetKey() {
+  var key = [];
+  var sequence = "";
+  for (i = 1; i <= 26; i++){
+    key.push(document.getElementById('cpos' + i).value);
+  }
+  for (j = 0; j <=25; j++) {
+    if (j < 25) {
+    sequence = sequence + key[j] + ", ";
+    }
+    else {
+      sequence = sequence + key[j];
+    }
+  }
+  return sequence;
 }
 
 function getMessage() {

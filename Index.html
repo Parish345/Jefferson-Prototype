@@ -53,7 +53,7 @@
 <ul class="w3-navbar navbarcolor">
   <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
   <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cypher</a></li>
-  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Advanced Cypher</a></li>
+  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Custom Cypher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
@@ -178,10 +178,49 @@
 </div>
 
 <div id="AdvCipher" class="w3-container tab">
-  <div id="keys" class="w3-animate-left" style="font-size: 18px">Key:
-    <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Create a New Cypher</button>
-    <button id="build" class="w3-btn w3-light-grey" onclick="">Upload a Key</button>
+</br>
+  <div id="keys" class="w3-animate-left" style="font-size: 18px">Letters for Wheels:
+  </br>
+    <textarea id="wheelInput" class ="wheelInput" ></textarea>
+  </br>
+</br>
+    <button id="build" class="w3-btn w3-light-grey" onclick="CheckLetterInput()">Use my letters</button>
+    <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Generate Random letters</button>
+  </br>
+  <div id="error1" class="alert w3-animate-left">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Uh oh!</strong> Check to make sure your letters are entered correctly. You must have 26 letters for 26 discs.
   </div>
+</br>
+  <div id="ckeys" class="w3-animate-left" style="font-size: 16px">Key:
+    <input id="cpos1" class ="key" type="number" min="1" max="26" value="1" required="true"/>
+    <input id="cpos2" class ="key" type="number" min="1" max="26" value="2"/>
+    <input id="cpos3" class ="key" type="number" min="1" max="26" value="3"/>
+    <input id="cpos4" class ="key" type="number" min="1" max="26" value="4"/>
+    <input id="cpos5" class ="key" type="number" min="1" max="26" value="5"/>
+    <input id="cpos6" class ="key" type="number" min="1" max="26" value="6"/>
+    <input id="cpos7" class ="key" type="number" min="1" max="26" value="7"/>
+    <input id="cpos8" class ="key" type="number" min="1" max="26" value="8"/>
+    <input id="cpos9" class ="key" type="number" min="1" max="26" value="9"/>
+    <input id="cpos10" class ="key" type="number" min="1" max="26" value="10"/>
+    <input id="cpos11" class ="key" type="number" min="1" max="26" value="11"/>
+    <input id="cpos12" class ="key" type="number" min="1" max="26" value="12"/>
+    <input id="cpos13" class ="key" type="number" min="1" max="26" value="13"/>
+    <input id="cpos14" class ="key" type="number" min="1" max="26" value="14"/>
+    <input id="cpos15" class ="key" type="number" min="1" max="26" value="15"/>
+    <input id="cpos16" class ="key" type="number" min="1" max="26" value="16"/>
+    <input id="cpos17" class ="key" type="number" min="1" max="26" value="17"/>
+    <input id="cpos18" class ="key" type="number" min="1" max="26" value="18"/>
+    <input id="cpos19" class ="key" type="number" min="1" max="26" value="19"/>
+    <input id="cpos20" class ="key" type="number" min="1" max="26" value="20"/>
+    <input id="cpos21" class ="key" type="number" min="1" max="26" value="21"/>
+    <input id="cpos22" class ="key" type="number" min="1" max="26" value="22"/>
+    <input id="cpos23" class ="key" type="number" min="1" max="26" value="23"/>
+    <input id="cpos24" class ="key" type="number" min="1" max="26" value="24"/>
+    <input id="cpos25" class ="key" type="number" min="1" max="26" value="25"/>
+    <input id="cpos26" class ="key" type="number" min="1" max="26" value="26"/>
+  </div>
+  <button id="cbuild" class="w3-btn w3-light-grey" onclick="BuildCustomCipher()">Build</button>
   <br/>
   <div>
         <div id="advMegaCypher">
@@ -191,8 +230,8 @@
 
         <br>
 
-        <button id="send" class="w3-btn w3-light-grey" onclick="sendMessage()">Send Message</button>
-        <button id="lock" class="w3-btn w3-light-grey" onclick="lockCipher()">Lock</button>
+        <button id="csend" class="w3-btn w3-light-grey" onclick="customSendMessage()">Send Message</button>
+        <button id="clock" class="w3-btn w3-light-grey" onclick="customLockCypher()">Lock</button>
   </div>
   <br>
 </div>
