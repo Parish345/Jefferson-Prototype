@@ -1,5 +1,7 @@
 var CURRENTCYPHER;
 var LOCKEDCYPHER;
+var CUSTOMCHYPER;
+var CUSTOMWHEELS;
 
 function uniqueValues(elements) {
 
@@ -466,9 +468,9 @@ function lockCipher () {
         if (i === 0) {
           newMegaWheel[j] = tempWheel[startPoint];
           newMegaWheel[j].value = j + 1;
-          newMegaWheel[j].display = newMegaWheel[j].display + " ";
+          newMegaWheel[j].display = newMegaWheel[j].display;
         }else{
-          newMegaWheel[j].display = newMegaWheel[j].display + tempWheel[startPoint].display + " ";
+          newMegaWheel[j].display = newMegaWheel[j].display + " " + tempWheel[startPoint].display;
         }
         startPoint = startPoint + 1;
         if (startPoint === 26){
@@ -499,144 +501,353 @@ function lockCipher () {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var fullRandomString = "";
 
+  for(i = 0; i < 26; i++){
+      var currentIndex = array.length, temporaryValue, randomIndex;
   // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+    while (0 !== currentIndex) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    fullRandomString = fullRandomString + array;
   }
 
-  return array;
+  return fullRandomString;
+}
+
+function createCustomWheels(inputString) {
+  var customWheels = [];
+  for (i = 0; i < 26; i++) {
+    var tempString = inputString.substring(i * 26, (i * 26) + 26);
+    var tempCustWheel = [];
+    for (j=0; j < 26; j++) {
+      tempCustWheel.push({
+        value: j,
+        display: tempString.substring(j, j + 1)
+      });
+    }
+    customWheels.push(tempCustWheel);
+    tempCustWheel = [];
+  }
+  CUSTOMWHEELS = customWheels;
+  document.getElementById("cpos1").style.display = "inline";
+  document.getElementById("cpos2").style.display = "inline";
+  document.getElementById("cpos3").style.display = "inline";
+  document.getElementById("cpos4").style.display = "inline";
+  document.getElementById("cpos5").style.display = "inline";
+  document.getElementById("cpos6").style.display = "inline";
+  document.getElementById("cpos7").style.display = "inline";
+  document.getElementById("cpos8").style.display = "inline";
+  document.getElementById("cpos9").style.display = "inline";
+  document.getElementById("cpos10").style.display = "inline";
+  document.getElementById("cpos11").style.display = "inline";
+  document.getElementById("cpos12").style.display = "inline";
+  document.getElementById("cpos13").style.display = "inline";
+  document.getElementById("cpos14").style.display = "inline";
+  document.getElementById("cpos15").style.display = "inline";
+  document.getElementById("cpos16").style.display = "inline";
+  document.getElementById("cpos17").style.display = "inline";
+  document.getElementById("cpos18").style.display = "inline";
+  document.getElementById("cpos19").style.display = "inline";
+  document.getElementById("cpos20").style.display = "inline";
+  document.getElementById("cpos21").style.display = "inline";
+  document.getElementById("cpos22").style.display = "inline";
+  document.getElementById("cpos23").style.display = "inline";
+  document.getElementById("cpos24").style.display = "inline";
+  document.getElementById("cpos25").style.display = "inline";
+  document.getElementById("cpos26").style.display = "inline";
+  document.getElementById("ckeys").style.display = "inline";
+  document.getElementById("cbuild").style.display = "inline";
+}
+
+function CheckLetterInput() {
+  var inputString = document.getElementById('wheelInput').value
+  //check how many letters
+  if (inputString.length === 676) {
+
+  }else {
+    //not enought letters
+    document.getElementById("error1").style.display = "block";
+  }
 }
 
 function RandomCypher() {
     var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    var randomWheels = [];
 
-    for (i = 0; i < 26; i++) {
-      randomWheels.push();
-      console.log(randomWheels[i]);
+    //var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var randomLetters = shuffle(alphabet);
+    randomLetters = randomLetters.replace(/,/g, '');
+
+    document.getElementById('wheelInput').value = randomLetters;
+    createCustomWheels(randomLetters);
+    /*if randomLetters.length === 676 {
+
+    }*/
+  }
+
+  function customKeyedCipher(key) {
+    var keyedWheel = [];
+    for (i = 0; i < 26; i++){
+      switch(key[i]){
+        case '26':
+          keyedWheel.push(CUSTOMWHEELS[25]);
+          break;
+        case '25':
+          keyedWheel.push(CUSTOMWHEELS[24]);
+          break;
+        case '24':
+          keyedWheel.push(CUSTOMWHEELS[23]);
+          break;
+        case '23':
+          keyedWheel.push(CUSTOMWHEELS[22]);
+          break;
+        case '22':
+          keyedWheel.push(CUSTOMWHEELS[21]);
+          break;
+        case '21':
+          keyedWheel.push(CUSTOMWHEELS[20]);
+          break;
+        case '20':
+          keyedWheel.push(CUSTOMWHEELS[19]);
+          break;
+        case '19':
+          keyedWheel.push(CUSTOMWHEELS[18]);
+          break;
+        case '18':
+          keyedWheel.push(CUSTOMWHEELS[17]);
+          break;
+        case '17':
+          keyedWheel.push(CUSTOMWHEELS[16]);
+          break;
+        case '16':
+          keyedWheel.push(CUSTOMWHEELS[15]);
+          break;
+        case '15':
+          keyedWheel.push(CUSTOMWHEELS[14]);
+          break;
+        case '14':
+          keyedWheel.push(CUSTOMWHEELS[13]);
+          break;
+        case '13':
+          keyedWheel.push(CUSTOMWHEELS[12]);
+          break;
+        case '12':
+          keyedWheel.push(CUSTOMWHEELS[11]);
+          break;
+        case '11':
+          keyedWheel.push(CUSTOMWHEELS[10]);
+          break;
+        case '10':
+          keyedWheel.push(CUSTOMWHEELS[9]);
+          break;
+        case '9':
+          keyedWheel.push(CUSTOMWHEELS[8]);
+          break;
+        case '8':
+          keyedWheel.push(CUSTOMWHEELS[7]);
+          break;
+        case '7':
+          keyedWheel.push(CUSTOMWHEELS[6]);
+          break;
+        case '6':
+          keyedWheel.push(CUSTOMWHEELS[5]);
+          break;
+        case '5':
+          keyedWheel.push(CUSTOMWHEELS[4]);
+          break;
+        case '4':
+          keyedWheel.push(CUSTOMWHEELS[3]);
+          break;
+        case '3':
+          keyedWheel.push(CUSTOMWHEELS[2]);
+          break;
+        case '2':
+          keyedWheel.push(CUSTOMWHEELS[1]);
+          break;
+        case '1':
+          keyedWheel.push(CUSTOMWHEELS[0]);
+          break;
+        }
+      }
+      return keyedWheel;
+  }
+
+  function BuildCustomCipher() {
+    var key = [];
+    var keyedCustomWheel = [];
+    for (i = 1; i <= 26; i++){
+      key.push(document.getElementById('cpos' + i).value);
     }
-    console.log(randomWheels);
+    keyedCustomWheel = customKeyedCipher(key);
 
-    CURRENTCYPHER = mobiscroll.scroller('#advCypher', {
+    CUSTOMCHYPER = mobiscroll.scroller('#advCypher', {
         theme: 'ios',
         display: 'inline',
         width: 30,
         wheels: [
             [{
                 label: 'Wheel 1',
-                data: randomWheels[0]
+                data: keyedCustomWheel[0]
             },
             {
                 label: 'Wheel 2',
-                data: randomWheels[1]
+                data: keyedCustomWheel[1]
             },
             {
                 label: 'Wheel 3',
-                data: randomWheels[2]
+                data: keyedCustomWheel[2]
             },
             {
                 label: 'Wheel 4',
-                data: randomWheels[3]
+                data: keyedCustomWheel[3]
             },
             {
                 label: 'Wheel 5',
-                data: randomWheels[4]
+                data: keyedCustomWheel[4]
             },
             {
                 label: 'Wheel 6',
-                data: randomWheels[5]
+                data: keyedCustomWheel[5]
             },
             {
                 label: 'Wheel 7',
-                data: randomWheels[6]
+                data: keyedCustomWheel[6]
             },
             {
                 label: 'Wheel 8',
-                data: randomWheels[7]
+                data: keyedCustomWheel[7]
             },
             {
                 label: 'Wheel 9',
-                data: randomWheels[8]
+                data: keyedCustomWheel[8]
             },
             {
                 label: 'Wheel 10',
-                data: randomWheels[9]
+                data: keyedCustomWheel[9]
             },
             {
                 label: 'Wheel 11',
-                data: randomWheels[10]
+                data: keyedCustomWheel[10]
             },
             {
                 label: 'Wheel 12',
-                data: randomWheels[11]
+                data: keyedCustomWheel[11]
             },
             {
                 label: 'Wheel 13',
-                data: randomWheels[12]
+                data: keyedCustomWheel[12]
             },
             {
                 label: 'Wheel 14',
-                data: randomWheels[13]
+                data: keyedCustomWheel[13]
             },
             {
                 label: 'Wheel 15',
-                data: randomWheels[14]
+                data: keyedCustomWheel[14]
             },
             {
                 label: 'Wheel 16',
-                data: randomWheels[15]
+                data: keyedCustomWheel[15]
             },
             {
                 label: 'Wheel 17',
-                data: randomWheels[16]
+                data: keyedCustomWheel[16]
             },
             {
                 label: 'Wheel 18',
-                data: randomWheels[17]
+                data: keyedCustomWheel[17]
             },
             {
                 label: 'Wheel 19',
-                data: randomWheels[18]
+                data: keyedCustomWheel[18]
             },
             {
                 label: 'Wheel 20',
-                data: randomWheels[19]
+                data: keyedCustomWheel[19]
             },
             {
                 label: 'Wheel 21',
-                data: randomWheels[20]
+                data: keyedCustomWheel[20]
             },
             {
                 label: 'Wheel 22',
-                data: randomWheels[21]
+                data: keyedCustomWheel[21]
             },
             {
                 label: 'Wheel 23',
-                data: randomWheels[22]
+                data: keyedCustomWheel[22]
             },
             {
                 label: 'Wheel 24',
-                data: randomWheels[23]
+                data: keyedCustomWheel[23]
             },
             {
                 label: 'Wheel 25',
-                data: randomWheels[24]
+                data: keyedCustomWheel[24]
             },
             {
                 label: 'Wheel 26',
-                data: randomWheels[25]
+                data: keyedCustomWheel[25]
             }]
         ]
     });
 
-}
+    document.getElementById("clock").style.display = "inline";
+
+  }
+
+  function customLockCypher() {
+    var key = [];
+    var customMegaWheel = [];
+    var tempLocking = [];
+    var customMessageValue = [];
+    customMessageValue = CUSTOMCHYPER.getArrayVal();
+
+    for (i = 1; i <= 26; i++){
+      key.push(document.getElementById('cpos' + i).value);
+    }
+
+    tempLocking = customKeyedCipher(key);
+    for (i = 0; i < 26; i++){
+        var startPoint = customMessageValue[i];
+        for (j = 0; j < 26; j++) {
+          if (i === 0) {
+            customMegaWheel[j] = tempLocking[i][startPoint];
+            customMegaWheel[j].value = j + 1;
+            customMegaWheel[j].display = customMegaWheel[j].display;
+          }else{
+            customMegaWheel[j].display = customMegaWheel[j].display + " " + tempLocking[i][startPoint].display;
+          }
+          startPoint = startPoint + 1;
+          if (startPoint === 26){
+            startPoint = 0;
+          }
+        }
+
+
+    }
+    CUSTOMCHYPER.destroy();
+    CUSTOMCHYPER = mobiscroll.scroller('#advCypher', {
+        theme: 'ios',
+        display: 'inline',
+        width: 1000,
+        wheels: [
+            [{
+                label: 'Combined Wheel',
+                data: customMegaWheel
+            }]
+        ]
+    });
+
+    document.getElementById("clock").style.display = "none";
+    document.getElementById("csend").style.display = "block";
+    //newMegaWheel = [];
+  }
