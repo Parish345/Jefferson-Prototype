@@ -34,14 +34,25 @@ margin-top: 0;
 margin-bottom: 0;
 }
 
+#AdvCipher {
+font-family: "Asap";
+color:#FFFFFF;
+text-align: left;
+padding-top: 20px;
+padding-bottom: 10px;
+margin-top: 0;
+margin-bottom: 0;
+}
+
 .key {
   width: auto;
   max-width: 37px;
 }
 
 .wheelInput {
-  width: 1100px;
+  width: 95%;
   height: 150px;
+  font-size: 15px;
 }
 
 #keys {
@@ -49,6 +60,11 @@ margin-bottom: 0;
 }
 
 #Cypher {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#advCypher {
   width: 100%;
   margin: 0 auto;
 }
