@@ -42,6 +42,8 @@ function load() {
   else {
     document.getElementById("error").style.display = "none";
     document.getElementById("error1").style.display = "none";
+    document.getElementById("error2").style.display = "none";
+    document.getElementById("error3").style.display = "none";
     document.getElementById("cpos1").style.display = "none";
     document.getElementById("cpos2").style.display = "none";
     document.getElementById("cpos3").style.display = "none";
@@ -70,6 +72,7 @@ function load() {
     document.getElementById("cpos26").style.display = "none";
     document.getElementById("ckeys").style.display = "none";
     document.getElementById("cbuild").style.display = "none";
+    document.getElementById("creset").style.display = "none";
     document.getElementById("csend").style.display = "none";
     document.getElementById("clock").style.display = "none";
     document.getElementById("send").style.display = "none";
