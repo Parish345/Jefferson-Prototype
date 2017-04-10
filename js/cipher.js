@@ -299,6 +299,18 @@ function BuildCipher() {
   }
 }
 
+function customBuildCipher() {
+  document.getElementById("error3").style.display = "none";
+  if (uniqueValues(document.getElementById('ckeys').getElementsByTagName('input')) == true & validInput(document.getElementById('ckeys').getElementsByTagName('input')) ==true) {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("clock").style.display = "block";
+    BuildCustomCipher();
+  }
+  else {
+    document.getElementById("error3").style.display = "block";
+  }
+}
+
 function ResetCipher() {
   document.getElementById("build").style.display = "inline"
   document.getElementById("reset").style.display = "none"
@@ -311,6 +323,49 @@ function ResetCipher() {
 
   CURRENTCYPHER.destroy();
   LOCKEDCYPHER.destroy();
+}
+
+function customResetCipher() {
+  document.getElementById("cbuild").style.display = "inline";
+  document.getElementById("creset").style.display = "none";
+  document.getElementById("csend").style.display = "none";
+  document.getElementById("clock").style.display = "none";
+  document.getElementById('wheelInput').value = "";
+  document.getElementById("cpos1").style.display = "none";
+  document.getElementById("cpos2").style.display = "none";
+  document.getElementById("cpos3").style.display = "none";
+  document.getElementById("cpos4").style.display = "none";
+  document.getElementById("cpos5").style.display = "none";
+  document.getElementById("cpos6").style.display = "none";
+  document.getElementById("cpos7").style.display = "none";
+  document.getElementById("cpos8").style.display = "none";
+  document.getElementById("cpos9").style.display = "none";
+  document.getElementById("cpos10").style.display = "none";
+  document.getElementById("cpos11").style.display = "none";
+  document.getElementById("cpos12").style.display = "none";
+  document.getElementById("cpos13").style.display = "none";
+  document.getElementById("cpos14").style.display = "none";
+  document.getElementById("cpos15").style.display = "none";
+  document.getElementById("cpos16").style.display = "none";
+  document.getElementById("cpos17").style.display = "none";
+  document.getElementById("cpos18").style.display = "none";
+  document.getElementById("cpos19").style.display = "none";
+  document.getElementById("cpos20").style.display = "none";
+  document.getElementById("cpos21").style.display = "none";
+  document.getElementById("cpos22").style.display = "none";
+  document.getElementById("cpos23").style.display = "none";
+  document.getElementById("cpos24").style.display = "none";
+  document.getElementById("cpos25").style.display = "none";
+  document.getElementById("cpos26").style.display = "none";
+  document.getElementById("ckeys").style.display = "none";
+  document.getElementById("cbuild").style.display = "none";
+
+  for (i = 1; i <= 26; i++){
+    document.getElementById("cpos" + i).readOnly = false;
+  }
+
+  CUSTOMCHYPER.destroy();
+  CUSTOMWHEELS = [];
 }
 
 function lockCipher () {
@@ -569,17 +624,45 @@ function createCustomWheels(inputString) {
 }
 
 function CheckLetterInput() {
+  document.getElementById("error1").style.display = "none";
+  document.getElementById("error2").style.display = "none";
   var inputString = document.getElementById('wheelInput').value
+  inputString = inputString.toUpperCase();
+  var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
   //check how many letters
   if (inputString.length === 676) {
+    for (i = 0; i < 26; i++) {
+      var tempString = inputString.substring(i * 26, (i * 26) + 26);
+      if( /[^a-zA-Z]/.test( tempString ) ) {
+       document.getElementById("error2").style.display = "block";
+       return false;
+      }
+        for (j = 0; j < 26; j++) {
+          if ( tempString.indexOf(alphabet[j]) < 0 ) {
+             document.getElementById("error2").style.display = "block";
+             return false;
+          }
+          if (tempString.split( new RegExp( alphabet[j], "gi" ) ).length > 2) {
+            document.getElementById("error2").style.display = "block";
+            return false;
+          }
+        }
+    }
 
   }else {
     //not enought letters
     document.getElementById("error1").style.display = "block";
+    return false;
   }
+
+  createCustomWheels(inputString);
+
 }
 
 function RandomCypher() {
+    document.getElementById("error1").style.display = "none";
+    document.getElementById("error2").style.display = "none";
     var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
     //var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -587,7 +670,7 @@ function RandomCypher() {
     randomLetters = randomLetters.replace(/,/g, '');
 
     document.getElementById('wheelInput').value = randomLetters;
-    createCustomWheels(randomLetters);
+    //createCustomWheels(randomLetters);
     /*if randomLetters.length === 676 {
 
     }*/
@@ -685,6 +768,7 @@ function RandomCypher() {
     var keyedCustomWheel = [];
     for (i = 1; i <= 26; i++){
       key.push(document.getElementById('cpos' + i).value);
+      document.getElementById("cpos" + i).readOnly = true;
     }
     keyedCustomWheel = customKeyedCipher(key);
 
@@ -805,6 +889,8 @@ function RandomCypher() {
   }
 
   function customLockCypher() {
+    document.getElementById("cbuild").style.display = "none";
+    document.getElementById("creset").style.display = "inline";
     var key = [];
     var customMegaWheel = [];
     var tempLocking = [];
