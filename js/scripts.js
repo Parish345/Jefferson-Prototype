@@ -1,3 +1,4 @@
+var slideIndex = 1;
 function load() {
   var hash = location.hash;
 
@@ -6,37 +7,6 @@ function load() {
     document.getElementById("send").style.display = "none";
     document.getElementById("lock").style.display = "none";
     document.getElementById("reset").style.display = "none";
-    document.getElementById("error1").style.display = "none";
-    document.getElementById("cpos1").style.display = "none";
-    document.getElementById("cpos2").style.display = "none";
-    document.getElementById("cpos3").style.display = "none";
-    document.getElementById("cpos4").style.display = "none";
-    document.getElementById("cpos5").style.display = "none";
-    document.getElementById("cpos6").style.display = "none";
-    document.getElementById("cpos7").style.display = "none";
-    document.getElementById("cpos8").style.display = "none";
-    document.getElementById("cpos9").style.display = "none";
-    document.getElementById("cpos10").style.display = "none";
-    document.getElementById("cpos11").style.display = "none";
-    document.getElementById("cpos12").style.display = "none";
-    document.getElementById("cpos13").style.display = "none";
-    document.getElementById("cpos14").style.display = "none";
-    document.getElementById("cpos15").style.display = "none";
-    document.getElementById("cpos16").style.display = "none";
-    document.getElementById("cpos17").style.display = "none";
-    document.getElementById("cpos18").style.display = "none";
-    document.getElementById("cpos19").style.display = "none";
-    document.getElementById("cpos20").style.display = "none";
-    document.getElementById("cpos21").style.display = "none";
-    document.getElementById("cpos22").style.display = "none";
-    document.getElementById("cpos23").style.display = "none";
-    document.getElementById("cpos24").style.display = "none";
-    document.getElementById("cpos25").style.display = "none";
-    document.getElementById("cpos26").style.display = "none";
-    document.getElementById("ckeys").style.display = "none";
-    document.getElementById("cbuild").style.display = "none";
-    document.getElementById("csend").style.display = "none";
-    document.getElementById("clock").style.display = "none";
     document.getElementById('cipherTab').click();
   }
   else {
@@ -79,6 +49,7 @@ function load() {
     document.getElementById("lock").style.display = "none";
     document.getElementById("reset").style.display = "none";
     document.getElementById('learnTab').click();
+
   }
 }
 
@@ -100,6 +71,7 @@ for (i = 0; i < x.length; i++) {
 }
 document.getElementById(tabName).style.display = "block";
 evt.currentTarget.className += " selectedtab";
+showDivs(slideIndex);
 }
 
 function openQuiz(evt, quiz) {
@@ -126,7 +98,7 @@ function customSendMessage() {
   //console.log(getMessage());
   document.getElementById("sendMess").style.display = "block";
   document.getElementById("sequence").textContent = customGetKey();
-  document.getElementById("message").textContent = getMessage();
+  document.getElementById("message").textContent = customGetMessage();
 }
 
 function customGetKey() {
@@ -148,6 +120,16 @@ function customGetKey() {
 
 function getMessage() {
     var message = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[0].textContent;
+  return message;
+}
+
+function customGetMessage() {
+    var len = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel").length;
+    if (len > 1)
+      var message = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[1].textContent;
+    else {
+      var message = document.getElementsByClassName("mbsc-sc-itm mbsc-sc-itm-3d   mbsc-btn-e mbsc-sc-itm-sel")[0].textContent;
+    }
   return message;
 }
 function getKey() {
@@ -192,4 +174,19 @@ function resetEmail() {
   document.getElementById("sendEmail").style.display = 'inline';
   document.getElementById("to_email").value = "";
   document.getElementById("friend").value = "";
+}
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
 }

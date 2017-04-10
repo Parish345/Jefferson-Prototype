@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Jefferson's Wheel Cypher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/Style.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -57,9 +58,55 @@
 </ul>
 
 <div id="Learn" class="w3-container tab">
-  <h2 class="bounceInDown animated">Watch the Video!</h2>
+  <h2 class="bounceInDown animated">View the Slideshow</h2>
+  <div class="w3-content w3-display-container bounceInDown animated" style="width: 50%;">
+    <div class="mySlides">
+      <img src="/media/jefferson_portrait.jpg">
+      <div class="w3-display-top w3-container w3-padding-16 w3-black">
+        Thomas Jefferson was one of the Founding Fathers, author of the Declaration of Independence, and the 3rd President of the United States
+      </div>
+    </div>
+    <div class="mySlides">
+      <div class="w3-display-bottom w3-container w3-padding-16 w3-black">
+        He is also known for some of his inventions like this swivel chair...
+      </div>
+      <img src="/media/swivelchair.jpg">
+    </div>
+    <div class="mySlides">
+      <img src="/media/jefferson-revolving-bookstand.jpg">
+      <div class="w3-display-bottom w3-container w3-padding-16 w3-black">
+        and this revolving bookstand
+      </div>
+    </div>
+    <div class="mySlides">
+      <div class="w3-display-bottom w3-container w3-padding-16 w3-black">
+        While serving as the U.S. Minister to France from 1785-1789, Jefferson discovered that all of his mail was being opened and read by the French postmasters.
+        He wanted a way to send and receive secret messages. That is when he thought of the Wheel Cypher!
+      </div>
+      <img src="/media/jeffersonfrance.jpg">
+    </div>
+    <div class="mySlides">
+      <div class="w3-display-bottom w3-container w3-padding-16 w3-black">
+      He documented specific instructions on how to build the Wheel Cypher, these instructions are now included in the Papers of Thomas Jefferson.
+      </div>
+      <img src="/media/Wheel Cypher Paper.jpg">
+    </div>
+    <div class="mySlides">
+      <iframe width="100%" height="320" src="https://www.youtube.com/embed/1_IFd4ZHQJw" frameborder="2"></iframe>
+      <div class="w3-display-bottom w3-container w3-padding-16 w3-black">
+      Demonstration of how to use the Wheel Cypher to encrypt and decrypt messages
+      </div>
+    </div>
+    <div class="mySlides">
+      <img src="/media/Helpful.jpeg">
+    </div>
+    <div class="mySlides">
+      <img src="/media/Ready.jpeg">
+    </div>
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
   <div style="text-align: center">
-    <iframe class="w3-animate-right" width="560" height="315" src="https://www.youtube.com/embed/ymPbISZY1ds" frameborder="5" allowfullscreen></iframe>
     <br><br><br>
     <button class="w3-btn w3-light-grey w3-animate-bottom" onclick="openQuiz(event, 'Quiz1');"> Quiz </button>
   </div>
@@ -176,17 +223,15 @@
   </div>
   <br>
 </div>
-
 <div id="AdvCipher" class="w3-container tab">
-</br>
   <div id="keys" class="w3-animate-left" style="font-size: 18px">Letters for Wheels:
-  </br>
     <textarea id="wheelInput" class ="wheelInput" ></textarea>
-  </br>
-</br>
+    <div style="font-size: 16px;">
     <button id="build" class="w3-btn w3-light-grey" onclick="CheckLetterInput()">Create Cypher</button>
-    <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Generate Random letters</button>
-  </br>
+    <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Generate Random Letters</button>
+    </div>
+  </div>
+  <br>
   <div id="error1" class="alert w3-animate-left">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <strong>Uh oh!</strong> Check to make sure your letters are entered correctly. You must have 26 letters for 26 discs.
@@ -199,7 +244,7 @@
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <strong>Uh oh!</strong> Check to make sure your key is entered correctly. You can't use the same disc twice and the disc number must be between 1 and 26.
   </div>
-</br>
+  <br>
   <div id="ckeys" class="w3-animate-left" style="font-size: 16px">Key:
     <input id="cpos1" class ="key" type="number" min="1" max="26" value="1" required="true"/>
     <input id="cpos2" class ="key" type="number" min="1" max="26" value="2"/>
@@ -228,17 +273,16 @@
     <input id="cpos25" class ="key" type="number" min="1" max="26" value="25"/>
     <input id="cpos26" class ="key" type="number" min="1" max="26" value="26"/>
   </div>
+  &nbsp
   <button id="cbuild" class="w3-btn w3-light-grey" onclick="customBuildCipher()">Assemble</button>
   <button id="creset" class="w3-btn w3-light-grey" onclick="customResetCipher()">Reset</button>
-  <br/>
+  <p></p>
   <div>
         <div id="advMegaCypher">
         </div>
         <div id="advCypher">
         </div>
-
         <br>
-
         <button id="csend" class="w3-btn w3-light-grey" onclick="customSendMessage()">Send Message</button>
         <button id="clock" class="w3-btn w3-light-grey" onclick="customLockCypher()">Lock</button>
   </div>
