@@ -53,7 +53,7 @@
 <ul class="w3-navbar navbarcolor">
   <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
   <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cypher</a></li>
-  <li><a href="javascript:void(0)" id="advCipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Custom Cypher</a></li>
+  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Custom Cypher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
@@ -156,6 +156,7 @@
     &nbsp
     <button id="build" class="w3-btn w3-light-grey keybtn" onclick="BuildCipher()">Assemble</button>
     <button id="reset" class="w3-btn w3-light-grey keybtn" onclick="ResetCipher()">Reset</button>
+
   </div>
   <br>
   <div id="error" class="alert w3-animate-left">
@@ -177,26 +178,19 @@
 </div>
 
 <div id="AdvCipher" class="w3-container tab">
-  <div class="w3-animate-left" style="font-size: 17px">Letters for Wheels:
-  <div>
+</br>
+  <div id="keys" class="w3-animate-left" style="font-size: 18px">Letters for Wheels:
+  </br>
     <textarea id="wheelInput" class ="wheelInput" ></textarea>
-
-  </div>
-    <button id="build" class="w3-btn w3-light-grey" onclick="CheckLetterInput()">Use my letters</button>
-
   </br>
 </br>
     <button id="build" class="w3-btn w3-light-grey" onclick="CheckLetterInput()">Create Cypher</button>
-
     <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Generate Random letters</button>
-  </div>
+  </br>
   <div id="error1" class="alert w3-animate-left">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <strong>Uh oh!</strong> Check to make sure your letters are entered correctly. You must have 26 letters for 26 discs.
   </div>
-
-  <br>
-
   <div id="error2" class="alert w3-animate-left">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <strong>Uh oh!</strong> Check to make sure your wheels have all letters of the alphabet one time and no other characters.
@@ -206,7 +200,6 @@
     <strong>Uh oh!</strong> Check to make sure your key is entered correctly. You can't use the same disc twice and the disc number must be between 1 and 26.
   </div>
 </br>
-
   <div id="ckeys" class="w3-animate-left" style="font-size: 16px">Key:
     <input id="cpos1" class ="key" type="number" min="1" max="26" value="1" required="true"/>
     <input id="cpos2" class ="key" type="number" min="1" max="26" value="2"/>
@@ -234,17 +227,10 @@
     <input id="cpos24" class ="key" type="number" min="1" max="26" value="24"/>
     <input id="cpos25" class ="key" type="number" min="1" max="26" value="25"/>
     <input id="cpos26" class ="key" type="number" min="1" max="26" value="26"/>
-    &nbsp
-    <button id="cbuild" class="w3-btn w3-light-grey" onclick="BuildCustomCipher()">Build</button>
   </div>
-  <div>
-    <p></p>
-  </div>
-
   <button id="cbuild" class="w3-btn w3-light-grey" onclick="customBuildCipher()">Assemble</button>
   <button id="creset" class="w3-btn w3-light-grey" onclick="customResetCipher()">Reset</button>
   <br/>
-
   <div>
         <div id="advMegaCypher">
         </div>
@@ -351,7 +337,7 @@
        <p></p>
      </footer>
    </div>
-</div>
+ </div>
 </body>
 <footer class="w3-container myfooter">
   Morgan Kap | Parish Hansen<div style="float: right">2017 MISM Capstone</div>
