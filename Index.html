@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Jefferson's Wheel Cypher</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/Style.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -54,7 +53,7 @@
 <ul class="w3-navbar navbarcolor">
   <li><a href="javascript:void(0)" id="learnTab" class="tablink" onclick="openTab(event, 'Learn');">Learn</a></li>
   <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'Cipher');">Cypher</a></li>
-  <li><a href="javascript:void(0)" id="cipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Custom Cypher</a></li>
+  <li><a href="javascript:void(0)" id="customCipherTab" class="tablink" onclick="openTab(event, 'AdvCipher');">Custom Cypher</a></li>
 </ul>
 
 <div id="Learn" class="w3-container tab">
@@ -90,11 +89,14 @@
       He documented specific instructions on how to build the Wheel Cypher, these instructions are now included in the Papers of Thomas Jefferson.
       </div>
       <img src="/media/Wheel Cypher Paper.jpg">
+      <div class="w3-display-bottomleft w3-container w3-padding-16 w3-black">
+      "Turn a cylinder of white wood of about 2. Inches diameter & 6. or 8. I. long.     bore through it's center a hole sufficient to recieve an iron spindle or axis of 1/8 or 1/4 I. diam.    divide the periphery into 26. equal parts (for the 26. letters of the alphabet) and, with a sharp point, draw parallel lines through all the points of division, from one end to the other of the cylinder, & trace those lines with ink to make them plain.    then cut the cylinder crosswise into pieces of about 1/6 of an inch thick.    they will resemble back-gammon men with plane sides.    number each of them, as they are cut off, on one side, that they may be arrangeable in any order you please.    on the periphery of each, and between the black lines, put all the letters of the alphabet, not in their established order, but jumbled, & without order, so that no two shall be alike.    now string them in their numerical order on an iron axis, one end of which has a head, and the other a nut and screw; the use of which is to hold them firm in any given position when you chuse it.    they are now ready for use, your correspondent having a similar cylinder, similarly arranged....."
+      </div>
     </div>
     <div class="mySlides">
       <iframe width="100%" height="320" src="https://www.youtube.com/embed/1_IFd4ZHQJw" frameborder="2"></iframe>
       <div class="w3-display-bottom w3-container w3-padding-16 w3-black">
-      Demonstration of how to use the Wheel Cypher to encrypt and decrypt messages
+      We have created a Wheel Cypher using Jefferson's instructions. Watch this demonstration of how to use it to encrypt and decrypt messages.
       </div>
     </div>
     <div class="mySlides">
@@ -225,6 +227,7 @@
 </div>
 <div id="AdvCipher" class="w3-container tab">
   <button id="instru" class="w3-btn w3-light-grey" onclick="instructions()">Instructions</button>
+  <p></p>
   <div id="keys" class="w3-animate-left" style="font-size: 18px">Letters for Wheels:
     <textarea id="wheelInput" class ="wheelInput" ></textarea>
     <div style="font-size: 16px;">
@@ -412,6 +415,28 @@
       </footer>
     </div>
   </div>
+
+<div id="sendMessCustom" class="w3-modal">
+   <div class="w3-modal-content w3-animate-top w3-card-8">
+     <header class="w3-container w3-blue">
+       <span onclick="resetEmail()"
+       class="w3-closebtn">&times;</span>
+       <h2>Send Message</h2>
+     </header>
+     <div id="beforeSend2" class="w3-container">
+        <p>Key:<tab><span id="sequence2" class="bolded" style="font-size: 15px; padding-left: 1em;"></span></p>
+       <p>Encrypted Message:<span id="message2" class="bolded" style="font-size: 15px; padding-left: 1em;"></span></p>
+       <p>What is your name?</p> <input id="sender" style="font-size: 15px" size="35"></input>
+       <p>What is your friend's name?</p> <input id="friend2" style="font-size: 15px" size="35"></input>
+       <p>What is your friend's email address:</p> <p><input id="to_email2" type="email" style="font-size: 15px" size="35"></input></p>
+     </div>
+     <footer id="sendFooterc1" class="w3-container w3-blue">
+       <p id="sendFooterc2"></p>
+       <button id="sendEmailCustom"class="w3-btn w3-light-grey" onclick="sendEmailCustom()">Send</button>
+       <p></p>
+     </footer>
+   </div>
+</div>
 </body>
 <footer class="w3-container myfooter">
   Morgan Kap | Parish Hansen<div style="float: right">2017 MISM Capstone</div>

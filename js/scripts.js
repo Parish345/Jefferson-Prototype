@@ -7,7 +7,83 @@ function load() {
     document.getElementById("send").style.display = "none";
     document.getElementById("lock").style.display = "none";
     document.getElementById("reset").style.display = "none";
+    document.getElementById("error1").style.display = "none";
+    document.getElementById("error2").style.display = "none";
+    document.getElementById("error3").style.display = "none";
+    document.getElementById("cpos1").style.display = "none";
+    document.getElementById("cpos2").style.display = "none";
+    document.getElementById("cpos3").style.display = "none";
+    document.getElementById("cpos4").style.display = "none";
+    document.getElementById("cpos5").style.display = "none";
+    document.getElementById("cpos6").style.display = "none";
+    document.getElementById("cpos7").style.display = "none";
+    document.getElementById("cpos8").style.display = "none";
+    document.getElementById("cpos9").style.display = "none";
+    document.getElementById("cpos10").style.display = "none";
+    document.getElementById("cpos11").style.display = "none";
+    document.getElementById("cpos12").style.display = "none";
+    document.getElementById("cpos13").style.display = "none";
+    document.getElementById("cpos14").style.display = "none";
+    document.getElementById("cpos15").style.display = "none";
+    document.getElementById("cpos16").style.display = "none";
+    document.getElementById("cpos17").style.display = "none";
+    document.getElementById("cpos18").style.display = "none";
+    document.getElementById("cpos19").style.display = "none";
+    document.getElementById("cpos20").style.display = "none";
+    document.getElementById("cpos21").style.display = "none";
+    document.getElementById("cpos22").style.display = "none";
+    document.getElementById("cpos23").style.display = "none";
+    document.getElementById("cpos24").style.display = "none";
+    document.getElementById("cpos25").style.display = "none";
+    document.getElementById("cpos26").style.display = "none";
+    document.getElementById("ckeys").style.display = "none";
+    document.getElementById("cbuild").style.display = "none";
+    document.getElementById("creset").style.display = "none";
+    document.getElementById("csend").style.display = "none";
+    document.getElementById("clock").style.display = "none";
     document.getElementById('cipherTab').click();
+  }
+
+  else if (hash == "#CustomCypher") {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("error1").style.display = "none";
+    document.getElementById("error2").style.display = "none";
+    document.getElementById("error3").style.display = "none";
+    document.getElementById("cpos1").style.display = "none";
+    document.getElementById("cpos2").style.display = "none";
+    document.getElementById("cpos3").style.display = "none";
+    document.getElementById("cpos4").style.display = "none";
+    document.getElementById("cpos5").style.display = "none";
+    document.getElementById("cpos6").style.display = "none";
+    document.getElementById("cpos7").style.display = "none";
+    document.getElementById("cpos8").style.display = "none";
+    document.getElementById("cpos9").style.display = "none";
+    document.getElementById("cpos10").style.display = "none";
+    document.getElementById("cpos11").style.display = "none";
+    document.getElementById("cpos12").style.display = "none";
+    document.getElementById("cpos13").style.display = "none";
+    document.getElementById("cpos14").style.display = "none";
+    document.getElementById("cpos15").style.display = "none";
+    document.getElementById("cpos16").style.display = "none";
+    document.getElementById("cpos17").style.display = "none";
+    document.getElementById("cpos18").style.display = "none";
+    document.getElementById("cpos19").style.display = "none";
+    document.getElementById("cpos20").style.display = "none";
+    document.getElementById("cpos21").style.display = "none";
+    document.getElementById("cpos22").style.display = "none";
+    document.getElementById("cpos23").style.display = "none";
+    document.getElementById("cpos24").style.display = "none";
+    document.getElementById("cpos25").style.display = "none";
+    document.getElementById("cpos26").style.display = "none";
+    document.getElementById("ckeys").style.display = "none";
+    document.getElementById("cbuild").style.display = "none";
+    document.getElementById("creset").style.display = "none";
+    document.getElementById("csend").style.display = "none";
+    document.getElementById("clock").style.display = "none";
+    document.getElementById("send").style.display = "none";
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("reset").style.display = "none";
+    document.getElementById("customCipherTab").click();
   }
   else {
     document.getElementById("error").style.display = "none";
@@ -97,9 +173,9 @@ function sendMessage() {
 
 function customSendMessage() {
   //console.log(getMessage());
-  document.getElementById("sendMess").style.display = "block";
-  document.getElementById("sequence").textContent = customGetKey();
-  document.getElementById("message").textContent = customGetMessage();
+  document.getElementById("sendMessCustom").style.display = "block";
+  document.getElementById("sequence2").textContent = customGetKey();
+  document.getElementById("message2").textContent = customGetMessage();
 }
 
 function instructions() {
@@ -173,6 +249,23 @@ function sendEmail() {
     });
 }
 
+function sendEmailCustom() {
+  var receiver = document.getElementById("to_email2").value;
+  var encrypted = customGetMessage();
+  var friend = document.getElementById("friend2").value;
+  var sequence = customGetKey();
+  var sender = document.getElementById("sender").value;
+  emailjs.send("default_service","custom_cypher",{to_email: receiver, from_name: sender, name: friend, key: sequence, message: encrypted})
+  .then(function(){
+       document.getElementById("sendEmailCustom").style.display = 'none';
+       document.getElementById("sendFooterc1").className = "w3-container w3-green";
+       document.getElementById("sendFooterc2").className = "lightSpeedIn animated";
+       document.getElementById("sendFooterc2").textContent = "Email Sent Successfully!";
+     }, function(err) {
+       alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+    });
+}
+
 function resetEmail() {
   document.getElementById('sendMess').style.display='none';
   document.getElementById('sendFooter1').className = 'w3-container w3-blue';
@@ -181,6 +274,15 @@ function resetEmail() {
   document.getElementById("sendEmail").style.display = 'inline';
   document.getElementById("to_email").value = "";
   document.getElementById("friend").value = "";
+
+  document.getElementById('sendMessCustom').style.display='none';
+  document.getElementById('sendFooterc1').className = 'w3-container w3-blue';
+  document.getElementById("sendFooterc2").textContent = "";
+  document.getElementById("sendFooterc2").className = "";
+  document.getElementById("sendEmailCustom").style.display = 'inline';
+  document.getElementById("to_email2").value = "";
+  document.getElementById("friend2").value = "";
+  document.getElementById("sender").value = "";
 }
 
 function plusDivs(n) {
