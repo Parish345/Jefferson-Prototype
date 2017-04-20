@@ -40,7 +40,7 @@
   <script src="js/mobiscroll.mobiscroll-dark.js"></script>
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script type="text/javascript">
-    (function(){
+  (function(){
         emailjs.init("user_0UoBIwSD5c35jpTpR6WLF");
       })();
   </script>
@@ -224,11 +224,13 @@
   <br>
 </div>
 <div id="AdvCipher" class="w3-container tab">
+  <button id="instru" class="w3-btn w3-light-grey" onclick="instructions()">Instructions</button>
   <div id="keys" class="w3-animate-left" style="font-size: 18px">Letters for Wheels:
     <textarea id="wheelInput" class ="wheelInput" ></textarea>
     <div style="font-size: 16px;">
     <button id="build" class="w3-btn w3-light-grey" onclick="CheckLetterInput()">Create Cypher</button>
     <button id="build" class="w3-btn w3-light-grey" onclick="RandomCypher()">Generate Random Letters</button>
+    <button id="saveInput" class="w3-btn w3-light-grey" onclick="saveInput()">Save Custom Wheels!</button>
     </div>
   </div>
   <br>
@@ -382,6 +384,34 @@
      </footer>
    </div>
  </div>
+ <div id="custInstruction" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-8">
+      <header class="w3-container w3-blue">
+        <span class="w3-closebtn" onclick="document.getElementById('custInstruction').style.display='none'">&times;</span>
+        <h2>Instructions:</h2>
+      </header>
+        <p>
+          <ol>
+            Encrypt Instructions:
+            <li>Create Custom Wheels by entering the alphabet in a random order for each wheel. There are 26 wheels you need to fill. Remember to use each letter and have no doubles! Or you can click &quot;Generate Random Letters&quot; to have the computer do it for you.</li>
+            <li>You are now ready to create your cypher. Click &quot;Create Cypher&quot; and select the order you want your wheels to appear in. &quot;Assemble&quot; your cypher and create your message. Lock the message, encrypt (spin), and send!</li>
+            <li>IMPORTANT: Remember to save you Custom Wheels! Send these to your friends so they can decrypt your message.</li>
+          </ol>
+          <ol>
+            Decrypt Instructions:
+            <li>Copy and Paste the custom wheels you received from you friend in a separate correspondence into the &quot;Letters for Wheels&quot; area. Then create your cypher.</li>
+            <li>Check the wheels are in the correct order and assemble your cypher. Enter the message you received.</li>
+            <li>Lock the message and look for the decrypted message from you friend.</li>
+          </ol>
+
+        </p>
+      <footer id="custInstructFooter" class="w3-container w3-blue">
+        <p id="custInstructFooter2"></p>
+        <button id="closeInstruct"class="w3-btn w3-light-grey" onclick="document.getElementById('custInstruction').style.display='none'">Close</button>
+        <p></p>
+      </footer>
+    </div>
+  </div>
 </body>
 <footer class="w3-container myfooter">
   Morgan Kap | Parish Hansen<div style="float: right">2017 MISM Capstone</div>

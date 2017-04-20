@@ -48,6 +48,7 @@ function load() {
     document.getElementById("send").style.display = "none";
     document.getElementById("lock").style.display = "none";
     document.getElementById("reset").style.display = "none";
+    document.getElementById("saveInput").style.display = "none";
     document.getElementById('learnTab').click();
 
   }
@@ -99,6 +100,12 @@ function customSendMessage() {
   document.getElementById("sendMess").style.display = "block";
   document.getElementById("sequence").textContent = customGetKey();
   document.getElementById("message").textContent = customGetMessage();
+}
+
+function instructions() {
+  //open instructions model
+
+  document.getElementById("custInstruction").style.display = "block";
 }
 
 function customGetKey() {

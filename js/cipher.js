@@ -27,6 +27,7 @@ function validInput(elements) {
 }
 
 function init() {
+  
   var wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'D'}, {value: 12, display:'U'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
 
   var wheel2 = [{value: 1, display:'Y'}, {value: 2, display:'L'}, {value: 3, display:'T'}, {value: 4, display:'H'}, {value: 5, display:'M'}, {value: 6, display:'K'}, {value: 7, display:'C'}, {value: 8, display:'W'}, {value: 9, display:'D'}, {value: 10, display:'A'}, {value: 11, display:'U'}, {value: 12, display:'S'}, {value: 13, display:'N'}, {value: 14, display:'J'},  {value: 15, display:'O'}, {value: 16, display:'P'}, {value: 17, display:'B'}, {value: 18, display:'I'}, {value: 19, display:'V'}, {value: 20, display:'Q'}, {value: 21, display:'F'}, {value: 22, display:'Z'}, {value: 23, display:'E'}, {value: 24, display:'G'}, {value: 25, display:'X'}, {value: 26, display:'R'}];
@@ -628,6 +629,7 @@ function CheckLetterInput() {
   document.getElementById("error2").style.display = "none";
   var inputString = document.getElementById('wheelInput').value
   inputString = inputString.toUpperCase();
+  inputString = inputString.replace(/\s/g,'')
   var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
   //check how many letters
@@ -657,6 +659,7 @@ function CheckLetterInput() {
   }
 
   createCustomWheels(inputString);
+  document.getElementById("saveInput").style.display = "inline";
 
 }
 
@@ -676,7 +679,7 @@ function RandomCypher() {
     }*/
   }
 
-  function customKeyedCipher(key) {
+function customKeyedCipher(key) {
     var keyedWheel = [];
     for (i = 0; i < 26; i++){
       switch(key[i]){
@@ -937,3 +940,21 @@ function RandomCypher() {
     document.getElementById("csend").style.display = "block";
     //newMegaWheel = [];
   }
+
+
+
+function saveInput() {
+    var inputString = document.getElementById('wheelInput').value
+    var fileName = "Custom-Cypher.txt"
+    var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+
+    var blob = new Blob([inputString], {type: "octet/stream"}),
+        url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    window.URL.revokeObjectURL(url);
+
+}
