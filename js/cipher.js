@@ -4,7 +4,7 @@ var CUSTOMCHYPER;
 var CUSTOMWHEELS;
 
 function uniqueValues(elements) {
-
+    //check that keys are unique and no duplicate wheels
     var values = {},
         len = elements.length,
         i = 0;
@@ -17,6 +17,7 @@ function uniqueValues(elements) {
 }
 
 function validInput(elements) {
+  //check that keys are between 26 and 1
       var valid = true;
 
       for(i=0; i < elements.length; i++) {
@@ -27,7 +28,7 @@ function validInput(elements) {
 }
 
 function init() {
-  
+  //default hardcoaded wheels that match the physical cypher we made
   var wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'D'}, {value: 12, display:'U'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
 
   var wheel2 = [{value: 1, display:'Y'}, {value: 2, display:'L'}, {value: 3, display:'T'}, {value: 4, display:'H'}, {value: 5, display:'M'}, {value: 6, display:'K'}, {value: 7, display:'C'}, {value: 8, display:'W'}, {value: 9, display:'D'}, {value: 10, display:'A'}, {value: 11, display:'U'}, {value: 12, display:'S'}, {value: 13, display:'N'}, {value: 14, display:'J'},  {value: 15, display:'O'}, {value: 16, display:'P'}, {value: 17, display:'B'}, {value: 18, display:'I'}, {value: 19, display:'V'}, {value: 20, display:'Q'}, {value: 21, display:'F'}, {value: 22, display:'Z'}, {value: 23, display:'E'}, {value: 24, display:'G'}, {value: 25, display:'X'}, {value: 26, display:'R'}];
@@ -83,12 +84,14 @@ function init() {
 
     var key = [];
 
+    //get current key set by user
     for (i = 1; i <= 26; i++){
       key.push(document.getElementById('pos' + i).value);
           document.getElementById("pos" + i).readOnly = true;
     }
-    var newWheel = [];
 
+    var newWheel = [];
+    //create new array with the wheels in the correct order based on user provided key
     for (i = 0; i < 26; i++){
       switch(key[i]){
         case '26':
@@ -173,7 +176,7 @@ function init() {
 
     };
 
-
+    //create mobiscroll instance populate with our cypher in the key order
     CURRENTCYPHER = mobiscroll.scroller('#Cypher', {
         theme: 'ios',
         display: 'inline',
@@ -288,6 +291,7 @@ function init() {
 }
 
 function BuildCipher() {
+  //set buttons to correct visibility after clicking assemble cypher. Init() builds the cypher and puts in on the page
   if (uniqueValues(document.getElementById('keys').getElementsByTagName('input')) == true & validInput(document.getElementById('keys').getElementsByTagName('input')) ==true) {
     document.getElementById("error").style.display = "none";
     document.getElementById("build").style.display = "none"
@@ -296,37 +300,43 @@ function BuildCipher() {
     init();
   }
   else {
+    //if the key is not valid throw error
     document.getElementById("error").style.display = "block";
   }
 }
 
 function customBuildCipher() {
+  //remove error if it is currently displayed
   document.getElementById("error3").style.display = "none";
+  //check to make sure the key is valid. If it is build the custom cypher
   if (uniqueValues(document.getElementById('ckeys').getElementsByTagName('input')) == true & validInput(document.getElementById('ckeys').getElementsByTagName('input')) ==true) {
     document.getElementById("error").style.display = "none";
     document.getElementById("clock").style.display = "block";
     BuildCustomCipher();
   }
   else {
+    //key or input invalid throw error
     document.getElementById("error3").style.display = "block";
   }
 }
 
 function ResetCipher() {
+  //reset the correct buttons to be visible
   document.getElementById("build").style.display = "inline"
   document.getElementById("reset").style.display = "none"
   document.getElementById("send").style.display = "none"
   document.getElementById("lock").style.display = "none"
-
+  //allow the key to be changed again.
   for (i = 1; i <= 26; i++){
     document.getElementById("pos" + i).readOnly = false;
   }
-
+  //destroy all current cyphers so they can be used again once they build a new one.
   CURRENTCYPHER.destroy();
   LOCKEDCYPHER.destroy();
 }
 
 function customResetCipher() {
+  //show the correct buttons and hide key input when they reset
   document.getElementById("cbuild").style.display = "inline";
   document.getElementById("creset").style.display = "none";
   document.getElementById("csend").style.display = "none";
@@ -360,17 +370,17 @@ function customResetCipher() {
   document.getElementById("cpos26").style.display = "none";
   document.getElementById("ckeys").style.display = "none";
   document.getElementById("cbuild").style.display = "none";
-
+  //allow key to be editable
   for (i = 1; i <= 26; i++){
     document.getElementById("cpos" + i).readOnly = false;
   }
-
+  //reset cyphers and arrays to build cypher
   CUSTOMCHYPER.destroy();
   CUSTOMWHEELS = [];
 }
 
 function lockCipher () {
-
+  //hardcoaded wheels to match physical cypher
   var wheel1 = [{value: 1, display:'I'}, {value: 2, display:'L'}, {value: 3, display:'B'}, {value: 4, display:'W'}, {value: 5, display:'H'}, {value: 6, display:'M'}, {value: 7, display:'T'}, {value: 8, display:'J'}, {value: 9, display:'X'}, {value: 10, display:'N'}, {value: 11, display:'U'}, {value: 12, display:'D'}, {value: 13, display:'E'}, {value: 14, display:'S'},  {value: 15, display:'R'}, {value: 16, display:'K'}, {value: 17, display:'C'}, {value: 18, display:'A'}, {value: 19, display:'Q'}, {value: 20, display:'Y'}, {value: 21, display:'F'}, {value: 22, display:'P'}, {value: 23, display:'G'}, {value: 24, display:'O'}, {value: 25, display:'V'}, {value: 26, display:'Z'}];
 
   var wheel2 = [{value: 1, display:'Y'}, {value: 2, display:'L'}, {value: 3, display:'T'}, {value: 4, display:'H'}, {value: 5, display:'M'}, {value: 6, display:'K'}, {value: 7, display:'C'}, {value: 8, display:'W'}, {value: 9, display:'D'}, {value: 10, display:'A'}, {value: 11, display:'U'}, {value: 12, display:'S'}, {value: 13, display:'N'}, {value: 14, display:'J'},  {value: 15, display:'O'}, {value: 16, display:'P'}, {value: 17, display:'B'}, {value: 18, display:'I'}, {value: 19, display:'V'}, {value: 20, display:'Q'}, {value: 21, display:'F'}, {value: 22, display:'Z'}, {value: 23, display:'E'}, {value: 24, display:'G'}, {value: 25, display:'X'}, {value: 26, display:'R'}];
@@ -422,22 +432,22 @@ function lockCipher () {
   var wheel25 = [{value: 1, display:'F'}, {value: 2, display:'R'}, {value: 3, display:'Y'}, {value: 4, display:'N'}, {value: 5, display:'P'}, {value: 6, display:'I'}, {value: 7, display:'H'}, {value: 8, display:'O'}, {value: 9, display:'A'}, {value: 10, display:'Z'}, {value: 11, display:'Q'}, {value: 12, display:'B'}, {value: 13, display:'E'}, {value: 14, display:'T'},  {value: 15, display:'C'}, {value: 16, display:'J'}, {value: 17, display:'M'}, {value: 18, display:'W'}, {value: 19, display:'D'}, {value: 20, display:'V'}, {value: 21, display:'X'}, {value: 22, display:'S'}, {value: 23, display:'L'}, {value: 24, display:'K'}, {value: 25, display:'G'}, {value: 26, display:'U'}];
 
   var wheel26 = [{value: 1, display:'Q'}, {value: 2, display:'I'}, {value: 3, display:'Y'}, {value: 4, display:'N'}, {value: 5, display:'T'}, {value: 6, display:'M'}, {value: 7, display:'J'}, {value: 8, display:'V'}, {value: 9, display:'O'}, {value: 10, display:'D'}, {value: 11, display:'K'}, {value: 12, display:'B'}, {value: 13, display:'C'}, {value: 14, display:'W'},  {value: 15, display:'R'}, {value: 16, display:'X'}, {value: 17, display:'S'}, {value: 18, display:'U'}, {value: 19, display:'F'}, {value: 20, display:'A'}, {value: 21, display:'H'}, {value: 22, display:'L'}, {value: 23, display:'P'}, {value: 24, display:'Z'}, {value: 25, display:'E'}, {value: 26, display:'G'}];
-
+  //hide correct buttons
   var key = [];
   document.getElementById("build").style.display = "none";
   document.getElementById("reset").style.display = "inline";
-
+  //get current message value set by user.
   var messageValue = [];
   messageValue = CURRENTCYPHER.getArrayVal();
 
   var newMegaWheel = [];
-
+  //get current key
   for (i = 1; i <= 26; i++){
     key.push(document.getElementById('pos' + i).value);
   }
-
+  //build the megawheel
   for (i = 0; i < 26; i++){
-
+    //itterate through wheels and find the correct one based on key value
     var tempWheel = [];
     switch(key[i]){
       case '26':
@@ -519,8 +529,11 @@ function lockCipher () {
         tempWheel = wheel1;
         break;
       }
+      //find the position the wheel is at so we can rotate from there
       var startPoint = messageValue[i] - 1;
+      //apend all values of current wheel to their equivilant spot on the megawheel
       for (j = 0; j < 26; j++) {
+        //if this is the first  wheel make sure that the value is correct for the display.
         if (i === 0) {
           newMegaWheel[j] = tempWheel[startPoint];
           newMegaWheel[j].value = j + 1;
@@ -528,14 +541,17 @@ function lockCipher () {
         }else{
           newMegaWheel[j].display = newMegaWheel[j].display + " " + tempWheel[startPoint].display;
         }
+        //make sure we don't need to start over on the wheel at 1
         startPoint = startPoint + 1;
         if (startPoint === 26){
           startPoint = 0;
         }
       }
+      //reset tempwheel for new wheel to be used on next iteration
       tempWheel = [];
 
   }
+  //destroy current cypher to elimate problems and create new mobiscroll instance with the new megawheel containing all values
   CURRENTCYPHER.destroy();
   LOCKEDCYPHER = mobiscroll.scroller('#megaCypher', {
       theme: 'ios',
@@ -548,7 +564,7 @@ function lockCipher () {
           }]
       ]
   });
-
+  //display correct buttons
   document.getElementById("lock").style.display = "none";
   document.getElementById("send").style.display = "block";
   newMegaWheel = [];
@@ -557,6 +573,7 @@ function lockCipher () {
 }
 
 function shuffle(array) {
+  //shuffle the alphabet
   var fullRandomString = "";
 
   for(i = 0; i < 26; i++){
@@ -580,7 +597,9 @@ function shuffle(array) {
 }
 
 function createCustomWheels(inputString) {
+  //create custome wheels based on user input
   var customWheels = [];
+  //break long string into 26 character chunks and put those into an array.
   for (i = 0; i < 26; i++) {
     var tempString = inputString.substring(i * 26, (i * 26) + 26);
     var tempCustWheel = [];
@@ -593,6 +612,7 @@ function createCustomWheels(inputString) {
     customWheels.push(tempCustWheel);
     tempCustWheel = [];
   }
+  //set global variable so we can use it to create mobiscroll intance. display key input at this time.
   CUSTOMWHEELS = customWheels;
   document.getElementById("cpos1").style.display = "inline";
   document.getElementById("cpos2").style.display = "inline";
@@ -625,16 +645,19 @@ function createCustomWheels(inputString) {
 }
 
 function CheckLetterInput() {
+  //validate user input for creating custom wheels
   document.getElementById("error1").style.display = "none";
   document.getElementById("error2").style.display = "none";
   var inputString = document.getElementById('wheelInput').value
+  //preliminary cleaning
   inputString = inputString.toUpperCase();
   inputString = inputString.replace(/\s/g,'')
   var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-  //check how many letters
+  //check how many letters. Should have enough letters for 26 wheels 676
   if (inputString.length === 676) {
     for (i = 0; i < 26; i++) {
+      //check if every charcter is a alphabet character or special character. if special throw error
       var tempString = inputString.substring(i * 26, (i * 26) + 26);
       if( /[^a-zA-Z]/.test( tempString ) ) {
        document.getElementById("error2").style.display = "block";
@@ -642,10 +665,12 @@ function CheckLetterInput() {
       }
         for (j = 0; j < 26; j++) {
           if ( tempString.indexOf(alphabet[j]) < 0 ) {
+            //check that every character of alphabet appears at least once
              document.getElementById("error2").style.display = "block";
              return false;
           }
           if (tempString.split( new RegExp( alphabet[j], "gi" ) ).length > 2) {
+            //check that there are no duplicates
             document.getElementById("error2").style.display = "block";
             return false;
           }
@@ -657,30 +682,30 @@ function CheckLetterInput() {
     document.getElementById("error1").style.display = "block";
     return false;
   }
-
+  //go create wheels array now that data is valid
   createCustomWheels(inputString);
   document.getElementById("saveInput").style.display = "inline";
 
 }
 
 function RandomCypher() {
+  //create a random cypher for the user
     document.getElementById("error1").style.display = "none";
     document.getElementById("error2").style.display = "none";
     var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-    //var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //get randomized alphabet
     var randomLetters = shuffle(alphabet);
     randomLetters = randomLetters.replace(/,/g, '');
 
     document.getElementById('wheelInput').value = randomLetters;
-    //createCustomWheels(randomLetters);
-    /*if randomLetters.length === 676 {
 
-    }*/
   }
 
 function customKeyedCipher(key) {
+  //put custom cypher in order of the keys
     var keyedWheel = [];
+    //find the correct wheel for the equivilant key value
     for (i = 0; i < 26; i++){
       switch(key[i]){
         case '26':
@@ -941,9 +966,8 @@ function customKeyedCipher(key) {
     //newMegaWheel = [];
   }
 
-
-
 function saveInput() {
+    //save the user provided input to a text file to be sent to friend outside of the system
     var inputString = document.getElementById('wheelInput').value
     var fileName = "Custom-Cypher.txt"
     var a = document.createElement("a");
